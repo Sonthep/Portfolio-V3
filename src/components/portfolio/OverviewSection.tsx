@@ -109,12 +109,12 @@ export default function OverviewSection() {
                   <div>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900 dark:text-white flex items-center gap-2 md:gap-3">
                       <span className="text-2xl sm:text-3xl md:text-4xl">👋</span>
-                      Hello, I&apos;m Muhammad Ramazan
+                      Hello, I&apos;m Sonthep Simmalee
                     </h3>
                     <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-4 md:mb-6">
                       A passionate <span className="font-bold text-blue-600 dark:text-blue-400">Full Stack Developer</span> and
                       <span className="font-bold text-purple-600 dark:text-purple-400">
-                        &nbsp; AI enthusiast</span> with
+                        &nbsp; Web Master</span> with
                       <span className="font-bold text-green-600 dark:text-green-400"> 5+ years</span> of experience crafting
                       digital experiences that users love.
                     </p>
