@@ -141,7 +141,7 @@ export default function OverviewSection() {
                       Core Technologies
                     </h4>
                     <div className="flex flex-wrap gap-2 md:gap-3">
-                      {["AI Integration", "React", "Next.js", "TypeScript", "Node.js", "Python", "AWS", "UI/UX Design", "Healthcare IT"].map((skill, index) => (
+                      {["React", "Next.js", "TypeScript", "Node.js", "Python", "UI/UX Design", "Kissflow", "ASP.NET", "C#"].map((skill, index) => (
                         <motion.span
                           key={skill}
                           initial={{ opacity: 0, scale: 0 }}
