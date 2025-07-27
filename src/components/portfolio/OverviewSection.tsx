@@ -115,7 +115,7 @@ export default function OverviewSection() {
                       A passionate <span className="font-bold text-blue-600 dark:text-blue-400">Full Stack Developer</span> and
                       <span className="font-bold text-purple-600 dark:text-purple-400">
                         &nbsp; Web Master</span> with
-                      <span className="font-bold text-green-600 dark:text-green-400"> 5+ years</span> of experience crafting
+                      <span className="font-bold text-green-600 dark:text-green-400"> 2+ years</span> of experience crafting
                       digital experiences that users love.
                     </p>
                   </div>
