@@ -7,73 +7,117 @@ import SectionHeader from "./SectionHeader";
 
 const projects = [
   {
-    title: "Checkersvip.com",
-    subtitle: "Professional Online Checkers Platform",
-    description: "A comprehensive multiplayer American checkers platform designed for competitive play with real-time communication capabilities. Currently undergoing official recognition process with the American Checkers Federation (ACF).",
-    features: [
-      "Real-time multiplayer gameplay with WebSocket technology",
-      "Advanced drag-and-drop game mechanics using DnDKit",
-      "Live chat system with emoji support and moderation",
-      "Player ranking and tournament management system",
-      "Spectator mode with real-time game observation",
-      "Mobile-responsive design for cross-platform play",
-      "Game replay and analysis tools",
-      "Social features including friend lists and challenges"
-    ],
-    deliverables: [
-      "Fully functional web application deployed on production",
-      "Real-time multiplayer game engine",
-      "User authentication and profile management",
-      "Admin dashboard for game moderation",
-      "Tournament management system",
-      "Mobile-optimized responsive interface",
-      "Integration with payment systems for premium features"
-    ],
-    tech: ["Next.js", "NextUI", "Tailwind CSS", "DnDKit", "Fastify", "Redis", "Socket.io", "PostgreSQL", "Prisma", "JWT Authentication", "Stripe API"],
-    github: "https://github.com",
-    live: "https://checkersvip.com",
-    gradient: "from-blue-500 to-cyan-500",
-    status: "Live",
-    category: "Web Application",
-    highlight: "Featured",
-    timeline: "6 months",
-    clientType: "Gaming Industry"
-  },
+  "title": "BrainTraining Mobile App",
+  "subtitle": "Personalized Cognitive Training Platform",
+  "description": "Elevate cognitive abilities with personalized challenges and engaging exercises. This mobile app adapts to user performance with smart difficulty scaling and tracks progress over time. Designed as a graduation project with advanced machine learning integration.",
+  "features": [
+    "Adaptive difficulty with personalized training plans",
+    "Gamified challenges across various cognitive skills",
+    "Progress tracking and performance analytics",
+    "Offline access with local data storage via SQLite",
+    "Machine learning integration for user profiling",
+    "Firebase-powered authentication and cloud sync",
+    "Social engagement with leaderboards and friend challenges",
+    "Optimized for Android & iOS using Flutter"
+  ],
+  "deliverables": [
+    "Fully functional mobile application (Android/iOS)",
+    "User authentication and profile system",
+    "Firebase integration for real-time sync",
+    "Machine learning backend via TensorFlow & Google Colab",
+    "Gamified UI with feedback and rewards",
+    "Offline-first support with SQLite database",
+    "Progress dashboard and analytics module"
+  ],
+  "tech": [
+    "Flutter",
+    "Dart",
+    "Firebase",
+    "SQLite",
+    "TensorFlow",
+    "Google Colab"
+  ],
+  "github": "https://github.com",
+  "live": "https://yourbraintrainingapp.com",
+  "gradient": "from-yellow-500 to-pink-500",
+  "status": "In Progress",
+  "category": "Mobile Application",
+  "highlight": "Graduation Project",
+  "timeline": "5 months",
+  "clientType": "Education & HealthTech"
+}
+,
   {
-    title: "AskRudy.ai",
-    subtitle: "AI-Powered Document Intelligence Platform",
-    description: "An advanced RAG-based AI chatbot that revolutionizes document interaction through multilingual translation and intelligent conversation capabilities. Features cutting-edge OpenAI multimodal technology for screenshot analysis and real-time text translation.",
-    features: [
-      "RAG (Retrieval-Augmented Generation) architecture for accurate responses",
-      "Multi-format document support (PDF, DOCX, TXT, images)",
-      "OpenAI GPT-4 Vision integration for screenshot analysis",
-      "Real-time multilingual translation (50+ languages)",
-      "Intelligent document chunking and vector embeddings",
-      "Conversational AI with context-aware responses",
-      "Document highlighting and annotation tools",
-      "Export capabilities for translations and summaries",
-      "Collaborative workspace for team document analysis"
-    ],
-    deliverables: [
-      "Production-ready AI chatbot platform",
-      "Document processing pipeline with OCR capabilities",
-      "Multi-language translation engine",
-      "User dashboard with document management",
-      "Subscription management with Stripe integration",
-      "API documentation and integration guides",
-      "Mobile-responsive Progressive Web App",
-      "Analytics dashboard for usage tracking"
-    ],
-    tech: ["Next.js", "NextUI", "Vercel AI SDK", "React-PDF", "Firebase", "LangChain", "OpenAI GPT-4", "Pinecone", "Stripe", "Tesseract.js", "PDF.js", "Zustand"],
-    github: "https://github.com",
-    live: "https://askrudy.ai",
-    gradient: "from-purple-500 to-pink-500",
-    status: "Live",
-    category: "AI Platform",
-    highlight: "Featured",
-    timeline: "8 months",
-    clientType: "EdTech & Enterprise"
-  }
+  "title": "ThepAPI",
+  "subtitle": "Dynamic Data-Fetching Web App",
+  "description": "A dynamic web application that fetches data from an external API and displays it in a clean, user-friendly interface. Built with React.js and styled using Tailwind CSS, the app demonstrates seamless integration of frontend technologies with API data handling.",
+  "features": [
+    "Real-time data fetching from external APIs",
+    "Responsive UI using Tailwind CSS",
+    "User-friendly layout and design",
+    "Loading and error handling states",
+    "Search and filter functionality",
+    "Pagination for large datasets",
+    "Reusable React components"
+  ],
+  "deliverables": [
+    "Responsive React web application",
+    "API integration with dynamic data rendering",
+    "Tailwind CSS-based modern UI",
+    "Error and loading state management",
+    "Deployment-ready frontend code"
+  ],
+  "tech": [
+    "React",
+    "Tailwind CSS",
+    "External API"
+  ],
+  "github": "https://github.com",
+  "live": "https://thepapi.com",
+  "gradient": "from-green-400 to-lime-500",
+  "status": "Completed",
+  "category": "Web Application",
+  "highlight": "Frontend Showcase",
+  "timeline": "1 month",
+  "clientType": "Personal Project"
+}
+,
+{
+  "title": "Authentication Clerk",
+  "subtitle": "Seamless User Authentication Platform",
+  "description": "Authentication Clerk is a web application built using React.js, Tailwind CSS, and Clerk. The project provides a seamless authentication experience for users by leveraging Clerk's secure and developer-friendly authentication services, all within a clean and responsive interface.",
+  "features": [
+    "User sign-up and login with Clerk integration",
+    "Passwordless and social login support",
+    "Customizable user profile management",
+    "Responsive design with Tailwind CSS",
+    "Session handling and access control",
+    "Protected routes and role-based UI rendering",
+    "Minimalistic UI with fast loading times"
+  ],
+  "deliverables": [
+    "Fully functional authentication system",
+    "Responsive React frontend with Clerk integration",
+    "Tailwind CSS for styling and layout",
+    "Authentication flow: Sign-up, login, logout",
+    "Protected routes and session management",
+    "Deployment-ready frontend"
+  ],
+  "tech": [
+    "React",
+    "Tailwind CSS",
+    "Clerk"
+  ],
+  "github": "https://github.com",
+  "live": "https://authenticationclerk.com",
+  "gradient": "from-purple-500 to-indigo-500",
+  "status": "Completed",
+  "category": "Web Application",
+  "highlight": "Authentication Demo",
+  "timeline": "2 weeks",
+  "clientType": "Personal Project"
+}
+
 ];
 
 export default function ProjectsSection() {
