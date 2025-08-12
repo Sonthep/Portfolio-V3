@@ -37,8 +37,8 @@ const projects = [
     "TensorFlow",
     "Google Colab"
   ],
-  "github": "https://github.com",
-  "live": "https://yourbraintrainingapp.com",
+  "github": "https://github.com/Sonthep/braintrainingV2-main",
+  "live": "https://github.com/Sonthep/braintrainingV2-main",
   "gradient": "from-yellow-500 to-pink-500",
   "status": "In Progress",
   "category": "Mobile Application",
@@ -72,8 +72,8 @@ const projects = [
     "Tailwind CSS",
     "External API"
   ],
-  "github": "https://github.com",
-  "live": "https://thepapi.com",
+  "github": "https://github.com/Sonthep/react_router_api",
+  "live": "https://thepapi.netlify.app/",
   "gradient": "from-green-400 to-lime-500",
   "status": "Completed",
   "category": "Web Application",
@@ -108,8 +108,8 @@ const projects = [
     "Tailwind CSS",
     "Clerk"
   ],
-  "github": "https://github.com",
-  "live": "https://authenticationclerk.com",
+  "github": "https://github.com/Sonthep/clerk",
+  "live": "https://reactauthclerk.netlify.app/",
   "gradient": "from-purple-500 to-indigo-500",
   "status": "Completed",
   "category": "Web Application",

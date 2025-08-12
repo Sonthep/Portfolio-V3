@@ -290,29 +290,29 @@ export default function ExperienceSection() {
           className="mt-16 md:mt-24 text-center px-4 md:px-6"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
-            <motion.div
+            {/* <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
               className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-50/50 to-blue-100/30 dark:from-blue-950/20 dark:to-blue-900/10 border border-blue-200/30 dark:border-blue-800/20 hover:border-blue-300/50 dark:hover:border-blue-600/30 transition-all duration-500"
             >
               <div className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">5+</div>
               <div className="text-gray-600 dark:text-gray-400 font-medium text-base md:text-lg">Years Experience</div>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div
+            {/* <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
               className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-green-50/50 to-green-100/30 dark:from-green-950/20 dark:to-green-900/10 border border-green-200/30 dark:border-green-800/20 hover:border-green-300/50 dark:hover:border-green-600/30 transition-all duration-500"
             >
               <div className="text-4xl md:text-5xl font-bold text-green-600 dark:text-green-400 mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">50+</div>
               <div className="text-gray-600 dark:text-gray-400 font-medium text-base md:text-lg">Projects Completed</div>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div
+            {/* <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
               className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-purple-50/50 to-purple-100/30 dark:from-purple-950/20 dark:to-purple-900/10 border border-purple-200/30 dark:border-purple-800/20 hover:border-purple-300/50 dark:hover:border-purple-600/30 transition-all duration-500 sm:col-span-2 lg:col-span-1"
             >
               <div className="text-4xl md:text-5xl font-bold text-purple-600 dark:text-purple-400 mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">91%</div>
               <div className="text-gray-600 dark:text-gray-400 font-medium text-base md:text-lg">Success Rate</div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
       </div>
