@@ -3,11 +3,43 @@
 import { useTheme } from "@/components/ThemeProvider";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    
+    if (pathname === "/") {
+      // On homepage, scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // On other pages, navigate to homepage then scroll
+      router.push(`/#${sectionId}`);
+    }
+    
+    // Close mobile menu if open
+    setIsMobileMenuOpen(false);
+  };
+
+  // Effect to handle scroll on initial load if URL has hash
+  useEffect(() => {
+    if (pathname === "/" && window.location.hash) {
+      const element = document.getElementById(window.location.hash.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [pathname]);
 
   return (
     <nav className="fixed top-0 md:top-4 w-full z-50 ">
@@ -22,14 +54,15 @@ export default function Navigation() {
           </motion.div>
           <div className="flex items-center space-x-8">
             <div className="hidden md:flex items-center space-x-8">
-              {["Overview", "Stack", "Experience", "Projects", "Testimonials", "Certifications", "Contact"].map((item, index) => (
+              {["Overview", "Stack", "Experience", "Projects", "Certifications", "Contact"].map((item, index) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
+                  onClick={(e) => handleClick(e, item.toLowerCase())}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-300 text-sm font-medium"
+                  className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-300 text-sm font-medium cursor-pointer"
                 >
                   {item}
                 </motion.a>
@@ -109,7 +142,7 @@ export default function Navigation() {
             >
               <nav className="flex flex-col items-center pt-20 pb-8 h-full">
                 <div className="space-y-6 text-center">
-                  {["Overview", "Stack", "Experience", "Projects", "Testimonials", "Certifications", "Contact"].map((item, index) => (
+                  {["Overview", "Stack", "Experience", "Projects", "Certifications", "Contact"].map((item, index) => (
                     <motion.a
                       key={item}
                       href={`#${item.toLowerCase()}`}
