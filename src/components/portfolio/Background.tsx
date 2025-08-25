@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 
 export default function Background() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
     };
@@ -86,8 +88,8 @@ export default function Background() {
         />
       )}
 
-      {/* Reduced floating particles */}
-      {Array.from({ length: particleCount }).map((_, i) => (
+      {/* Reduced floating particles (only render on client to avoid SSR nondeterminism) */}
+      {isMounted && Array.from({ length: particleCount }).map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-blue-400/60 rounded-full"

@@ -1,18 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export default function TypewriterRole() {
+  const roles = useMemo(
+    () => [
+      "Full Stack Developer",
+      "Software Engineer",
+      "Web Master",
+    ],
+    [] // Empty dependency array since roles are static
+  );
+
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const roles = [
-    "Full Stack Developer",
-    "Software Engineer",
-    "Web Master",
-  ];
 
   // Typewriter effect
   useEffect(() => {
@@ -159,4 +162,4 @@ export default function TypewriterRole() {
       </motion.div>
     </motion.div>
   );
-} 
+}

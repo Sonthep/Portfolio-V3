@@ -1,22 +1,28 @@
+// src/app/project/[slug]/page.tsx
 "use client";
 
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Project, allProjects } from "@/data/projects";
 import { notFound } from "next/navigation";
+import { allProjects } from "@/data/projects";
+import { use } from "react"; // 👈 เพิ่มการ import use hook
 
 interface ProjectPageProps {
-  params: {
+  // 👈 แก้ไขประเภทของ params ให้เป็น Promise
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const ProjectPage = ({ params }: ProjectPageProps) => {
-  // Find the project based on the slug (you might want to modify this based on your needs)
+  // 👈 ใช้ use(params) เพื่อให้ได้ค่า params ที่แท้จริง
+  const resolvedParams = use(params);
+  const slug = resolvedParams.slug;
+
   const project = allProjects.find(
-    (p) => p.title.toLowerCase().replace(/\s+/g, "-") === params.slug
+    (p) => p.title.toLowerCase().replace(/\s+/g, "-") === slug
   );
 
   if (!project) {

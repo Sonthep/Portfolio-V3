@@ -1,9 +1,11 @@
-import { PostHogProvider } from "@/components/PostHogProvider";
+// Temporarily disable PostHog during build to avoid SSR errors
+// import { PostHogProvider } from "@/components/PostHogProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navigation from "@/components/portfolio/Navigation";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+export const dynamic = 'force-dynamic';
 
 const inter = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
@@ -27,12 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <PostHogProvider>
-          <ThemeProvider>
-            <Navigation />
-            {children}
-          </ThemeProvider>
-        </PostHogProvider>
+        <ThemeProvider>
+          <Navigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -73,7 +73,7 @@ export default function HeroSection() {
           {[
             { href: "https://github.com/Sonthep", icon: "simple-icons:github", label: "GitHub", color: "hover:text-gray-900 dark:hover:text-white" },
             { href: "https://www.linkedin.com/in/sonthep-simmalee-04bb86340/?trk=opento_sprofile_goalscard", icon: "skill-icons:linkedin", label: "LinkedIn", color: "hover:text-blue-600" },
-            { href: "sonthep.simmalee@gmail.com", icon: "material-icon-theme:email", label: "Email", color: "hover:text-green-600" }
+            { href: "mailto:sonthep.simmalee@gmail.com", icon: "material-icon-theme:email", label: "Email", color: "hover:text-green-600" }
           ].map((link) => (
             <motion.div key={link.label} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link

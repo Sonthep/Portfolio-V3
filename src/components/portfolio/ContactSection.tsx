@@ -1,6 +1,4 @@
 "use client";
-
-import emailjs from '@emailjs/browser';
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -30,6 +28,7 @@ export default function ContactSection() {
     setSubmitStatus('idle');
 
     try {
+      const emailjs = (await import('@emailjs/browser')).default;
       // EmailJS configuration
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_jbatzhh';
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_xvihsc4';
@@ -205,6 +204,8 @@ export default function ContactSection() {
                   </p>
                   {/* add a button to close the message */}
                   <button
+                    type="button"
+                    aria-label="Dismiss success message"
                     onClick={() => setSubmitStatus('idle')}
                     className="absolute top-1 right-1  text-red-500 rounded-md"
                   >
@@ -228,6 +229,8 @@ export default function ContactSection() {
                   </p>
                   {/* add a button to close the message */}
                   <button
+                    type="button"
+                    aria-label="Dismiss error message"
                     onClick={() => setSubmitStatus('idle')}
                     className="absolute top-1 right-1  text-red-500 rounded-md"
                   >

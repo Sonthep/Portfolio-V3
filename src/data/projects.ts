@@ -1,22 +1,10 @@
-export interface Project {
-  title: string;
-  subtitle: string;
-  description: string;
-  features: string[];
-  deliverables: string[];
-  tech: string[];
-  github: string;
-  live: string;
-  gradient: string;
-  status: string;
-  category: string;
-  highlight?: string;
-  timeline: string;
-  clientType: string;
-  image?: string;
-}
+// src/data/projects.ts
 
+import type { Project } from "@/types/project";
+
+// แก้ไข: เปลี่ยนชื่อตัวแปรจาก 'projects' เป็น 'allProjects'
 export const allProjects: Project[] = [
+  // ...your projects data here
   {
     title: "BrainTraining Mobile App",
     subtitle: "Personalized Cognitive Training Platform",
@@ -146,9 +134,8 @@ export const allProjects: Project[] = [
     highlight: "Personal Website",
     timeline: "2 months",
     clientType: "Personal Project",
-    image: "/projects/portfolio.png"
+    image: "/image/mobile.webp"
   }
 ];
-
-// Featured projects for the home page
+// แก้ไข: export featuredProjects จาก allProjects
 export const featuredProjects = allProjects.slice(0, 3);
