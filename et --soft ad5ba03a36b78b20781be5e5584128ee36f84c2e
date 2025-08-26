@@ -1,0 +1,119 @@
+[33mcommit fb617821a7ec8d342ac842726f1e46cb59ea759d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Tue Aug 26 00:31:06 2025 +0700
+
+    Fix build issues: Convert to static export, simplify components, and remove problematic dependencies
+
+[33mcommit d254863e1d1ac487e3d9ee27de2c7e598cc0f449[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Mon Aug 25 23:53:36 2025 +0700
+
+    Fix dynamic route and static generation: Separate client/server components, add generateStaticParams, and remove problematic dynamic exports
+
+[33mcommit ad5ba03a36b78b20781be5e5584128ee36f84c2e[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Mon Aug 25 23:29:09 2025 +0700
+
+    Add comprehensive error boundaries: SafeThemeProvider and SafeNavigation to prevent any component crashes
+
+[33mcommit e29b5fcffeb0b338dd86a44498f0b291fc5ded53[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Mon Aug 25 23:20:11 2025 +0700
+
+    Add robust error handling: PostHog fallback, loading states, and SafePostHogProvider wrapper to prevent blank page crashes
+
+[33mcommit da563a15e6d3355ea9850110151608d0a5371379[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Mon Aug 25 23:09:28 2025 +0700
+
+    Fix blank page issue: add PostHog environment check, re-enable PostHogProvider, improve error boundary
+
+[33mcommit ecca26f4778e5b79dcf2f9b7dcf03379b99ee47c[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Mon Aug 25 22:47:51 2025 +0700
+
+    Fix deployment issues: merge next.config files, remove pnpm-lock.yaml to resolve package manager conflicts
+
+[33mcommit 15e19a0ae60dc6289de3ce0d476309f6650c5aa7[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Mon Aug 25 22:30:12 2025 +0700
+
+    Fix prerender errors: make client-only modules safe for SSR, defer emailjs import, remove nested anchors, add a11y labels; mark layout/home dynamic; clean up navigation duplication; minor data/image updates
+
+[33mcommit ed07a16cf253b947a7e40d44be5ca67a430a782c[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Thu Aug 21 22:19:31 2025 +0700
+
+    add ux ui navbar and button connect link page project
+
+[33mcommit 0da0cc956d8e459ba8ae453f8b67e65565362f17[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Wed Aug 20 23:30:36 2025 +0700
+
+    add page project
+
+[33mcommit 006e95a3208babf3677b33f5251cbe57056d5b90[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Wed Aug 13 00:16:46 2025 +0700
+
+    add hamburger nav
+
+[33mcommit 498170871a3e4bd3738936e3ec747b142202f4ff[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Sat Aug 9 00:20:32 2025 +0700
+
+    add projectsection
+
+[33mcommit 4a9e0ba73c2d58a8a3b4054007b461c97d24ad5f[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Thu Aug 7 00:20:39 2025 +0700
+
+    add contact
+
+[33mcommit dda9e87ef383a0f08b34613de653434c9e5c3184[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Wed Jul 30 23:26:33 2025 +0700
+
+    add certificates
+
+[33mcommit be62582b998f0e067ceb0f69bd88af3f2cec031a[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Sun Jul 27 22:08:49 2025 +0700
+
+    delete testimoials and add cv
+
+[33mcommit 96cf16286c77b7f75bf50759548eb5211c7f4622[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Sun Jul 27 00:09:16 2025 +0700
+
+    delete licene and remake readme.md
+
+[33mcommit f67fb43cbc3930a03411075903277e3dedea9282[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Sat Jul 26 23:45:08 2025 +0700
+
+    add techstack,experience
+
+[33mcommit ca2631b45c9e090dbc4f933b6cc8c372c15bd819[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Fri Jul 25 00:04:40 2025 +0700
+
+    add achievment
+
+[33mcommit 123e102ebde9daf4b7da5a4bde3275fa5ab2e63f[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Wed Jul 23 23:31:49 2025 +0700
+
+    add about me
+
+[33mcommit 66983bda17930fe57a2b2ceb7c595e95439132c1[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Tue Jul 22 23:46:58 2025 +0700
+
+    add hero section
+
+[33mcommit 288498760b16b8efdb030c7581443b7ef128d4d0[m
+Author: Sonthep Simmalee <gan14tap@gmail.com>
+Date:   Thu Jun 5 21:57:23 2025 +0700
+
+    first commit
