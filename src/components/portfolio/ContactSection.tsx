@@ -27,36 +27,13 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    try {
-      const emailjs = (await import('@emailjs/browser')).default;
-      // EmailJS configuration
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_jbatzhh';
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_xvihsc4';
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'bErCqKoXM7kRPR0QS';
-
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: 'sonthep.simmalee@gmail.com', // Your email
-        },
-        publicKey
-      );
-
-      console.log('Email sent successfully:', result);
+    // Simulate form submission
+    setTimeout(() => {
+      console.log('Form submitted:', formData);
       setSubmitStatus('success');
       setFormData({ name: "", email: "", message: "" });
-
-    } catch (error) {
-      console.error('Failed to send email:', error);
-      setSubmitStatus('error');
-    } finally {
       setIsSubmitting(false);
-    }
+    }, 1000);
   };
 
   return (
@@ -69,15 +46,12 @@ export default function ContactSection() {
       className="mb-16"
     >
       <div className="max-w-4xl mx-auto">
-
-
         <SectionHeader
           heading="Let's Work Together"
           description="Ready to bring your ideas to life? I'm always excited to work on interesting projects and collaborate with amazing people. Let's create something extraordinary together."
           tagIcon='solar:chat-line-bold'
           tagText='Contact'
           centered={true}
-
         />
 
         {/* Contact Form */}
@@ -202,12 +176,11 @@ export default function ContactSection() {
                   <p className="text-green-600 text-left dark:text-green-500 text-sm mt-1">
                     Thank you for reaching out. I&apos;ll get back to you soon!
                   </p>
-                  {/* add a button to close the message */}
                   <button
                     type="button"
                     aria-label="Dismiss success message"
                     onClick={() => setSubmitStatus('idle')}
-                    className="absolute top-1 right-1  text-red-500 rounded-md"
+                    className="absolute top-1 right-1 text-red-500 rounded-md"
                   >
                     <Icon icon="solar:close-circle-bold" width={20} height={20} />
                   </button>
@@ -227,12 +200,11 @@ export default function ContactSection() {
                   <p className="text-red-600 text-left dark:text-red-500 text-sm mt-1">
                     Please try again or contact me directly at sonthep.simmalee@gmail.com
                   </p>
-                  {/* add a button to close the message */}
                   <button
                     type="button"
                     aria-label="Dismiss error message"
                     onClick={() => setSubmitStatus('idle')}
-                    className="absolute top-1 right-1  text-red-500 rounded-md"
+                    className="absolute top-1 right-1 text-red-500 rounded-md"
                   >
                     <Icon icon="solar:close-circle-bold" width={20} height={20} />
                   </button>
