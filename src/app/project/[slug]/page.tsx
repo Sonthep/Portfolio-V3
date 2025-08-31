@@ -1,25 +1,29 @@
 // src/app/project/[slug]/page.tsx
-"use client";
-
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { allProjects } from "@/data/projects";
-import { use } from "react"; // 👈 เพิ่มการ import use hook
+
+// Force dynamic rendering to avoid prerender errors
+export const dynamic = 'force-dynamic';
+
+// Generate static params for dynamic routes
+export async function generateStaticParams() {
+  return allProjects.map((project) => ({
+    slug: project.title.toLowerCase().replace(/\s+/g, "-"),
+  }));
+}
 
 interface ProjectPageProps {
-  // 👈 แก้ไขประเภทของ params ให้เป็น Promise
   params: Promise<{
     slug: string;
   }>;
 }
 
-const ProjectPage = ({ params }: ProjectPageProps) => {
-  // 👈 ใช้ use(params) เพื่อให้ได้ค่า params ที่แท้จริง
-  const resolvedParams = use(params);
-  const slug = resolvedParams.slug;
+const ProjectPage = async ({ params }: ProjectPageProps) => {
+  // For server component, we need to await the params
+  const { slug } = await params;
 
   const project = allProjects.find(
     (p) => p.title.toLowerCase().replace(/\s+/g, "-") === slug
@@ -37,14 +41,9 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[length:20px_20px]" />
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
+          <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
               {project.title}
             </h1>
@@ -71,7 +70,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                 Live Demo
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -80,11 +79,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="md:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
+            <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Project Overview
               </h2>
@@ -120,16 +115,11 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                   <li key={index}>{deliverable}</li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           </div>
 
           {/* Sidebar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-1"
-          >
+          <div className="md:col-span-1">
             <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                 Project Details
@@ -178,16 +168,11 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Back to Projects */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-16"
-        >
+        <div className="text-center mt-16">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -195,7 +180,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             <Icon icon="solar:arrow-left-line-duotone" className="w-5 h-5" />
             <span>Back to All Projects</span>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </main>
   );

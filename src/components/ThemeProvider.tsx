@@ -15,23 +15,28 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setTheme("light");
+    // Check if we're in the browser
+    if (typeof window !== 'undefined') {
+      // Check for saved theme preference or default to dark
+      const savedTheme = localStorage.getItem("theme") as Theme;
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+        setTheme("light");
+      }
     }
   }, []);
 
   useEffect(() => {
     // Update document class and save preference
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    if (typeof window !== 'undefined') {
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      localStorage.setItem("theme", theme);
     }
-    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {

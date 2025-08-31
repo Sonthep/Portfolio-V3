@@ -16,6 +16,9 @@ export default function Navigation() {
   const router = useRouter();
 
   useEffect(() => {
+    // Only run in browser environment
+    if (typeof window === 'undefined') return;
+
     const handleScroll = () => {
       const sections = ["overview", "stack", "experience", "projects", "certifications", "contact"];
       const scrollPosition = window.scrollY + 100;
@@ -44,19 +47,23 @@ export default function Navigation() {
   // ปรับปรุง handleClick สำหรับ desktop navigation
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
-    
+
     if (pathname === "/") {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      if (typeof window !== 'undefined') {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     } else {
       await router.push('/');
-      const element = document.getElementById(sectionId);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+      if (typeof window !== 'undefined') {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
       }
     }
     setIsMobileMenuOpen(false);
@@ -66,11 +73,13 @@ export default function Navigation() {
   const handleMobileClick = async (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-    
+
     if (pathname === "/") {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      if (typeof window !== 'undefined') {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     } else {
       await router.push(`/#${sectionId}`);
