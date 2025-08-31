@@ -3,7 +3,6 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true
   },
-  output: 'standalone',
   images: {
     domains: ['github.com', 'raw.githubusercontent.com']
   },
