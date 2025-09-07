@@ -1,5 +1,4 @@
-'use client';
-
+import ClientWrapper from "@/components/ClientWrapper";
 import {
   HeroSection,
   OverviewSection,
@@ -16,15 +15,17 @@ export const dynamic = 'force-dynamic';
 
 export default function Portfolio() {
   return (
-    <main className="min-h-screen">
-      <HeroSection />
-      <OverviewSection />
-      <TechStackSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <CertificationsSection />
-      <ContactSection />
-      <Footer />
-    </main>
+    <ClientWrapper>
+      <main className="min-h-screen">
+        <HeroSection />
+        <OverviewSection />
+        <TechStackSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <CertificationsSection />
+        <ContactSection />
+        <Footer />
+      </main>
+    </ClientWrapper>
   );
 }

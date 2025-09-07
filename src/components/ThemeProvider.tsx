@@ -65,7 +65,9 @@ export function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
     // Return default theme in case of error to prevent crash
-    console.warn("useTheme must be used within a ThemeProvider. Using default theme.");
+    if (typeof window !== 'undefined') {
+      console.warn("useTheme must be used within a ThemeProvider. Using default theme.");
+    }
     return {
       theme: "dark" as Theme,
       toggleTheme: () => {}

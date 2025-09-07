@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+
 export default function GlobalError({
   error,
   reset,
@@ -7,21 +9,38 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  console.error('Global error:', error);
+  useEffect(() => {
+    // Only log on client side
+    if (typeof window !== 'undefined') {
+      console.error('Global error:', error);
+    }
+  }, [error]);
   
   return (
-    <html>
-      <body>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold mb-4">Something went wrong!</h2>
-            <p className="text-gray-600 mb-4">An unexpected error occurred.</p>
-            <button
-              onClick={() => reset()}
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-              Try again
-            </button>
+    <html suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <div className="min-h-screen flex items-center justify-center bg-white">
+          <div className="text-center p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              เกิดข้อผิดพลาด
+            </h2>
+            <p className="text-gray-600 mb-6">
+              กรุณาลองใหม่อีกครั้ง หรือรีเฟรชหน้าเว็บ
+            </p>
+            <div className="space-x-4">
+              <button
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+                onClick={() => reset()}
+              >
+                ลองใหม่
+              </button>
+              <button
+                className="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+                onClick={() => window.location.href = '/'}
+              >
+                กลับหน้าหลัก
+              </button>
+            </div>
           </div>
         </div>
       </body>
