@@ -23,15 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-function LayoutContent({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <Navigation />
-      {children}
-    </>
-  );
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -41,7 +32,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider>
-          <LayoutContent>{children}</LayoutContent>
+          <Navigation />
+          {children}
         </ThemeProvider>
       </body>
     </html>

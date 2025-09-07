@@ -13,10 +13,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     // Check if we're in the browser
     if (typeof window !== 'undefined') {
       // Check for saved theme preference or default to dark
@@ -45,18 +43,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
-  // Prevent hydration mismatch - return children immediately but with suppressed hydration warnings
-  if (!mounted) {
-    return (
+  // Always provide the context, even when not mounted
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div suppressHydrationWarning>
         {children}
       </div>
-    );
-  }
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
     </ThemeContext.Provider>
   );
 }
