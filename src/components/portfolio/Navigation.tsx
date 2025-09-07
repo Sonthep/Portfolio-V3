@@ -9,7 +9,6 @@ import Link from "next/link";
 
 export default function Navigation() {
   const [mounted, setMounted] = useState(false);
-  const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -19,6 +18,9 @@ export default function Navigation() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Get theme safely - this will use the fallback if context is not available
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     // Only run in browser environment
