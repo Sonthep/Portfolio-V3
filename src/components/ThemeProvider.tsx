@@ -45,13 +45,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
-  // Prevent hydration mismatch and show loading state
+  // Prevent hydration mismatch - return children immediately but with suppressed hydration warnings
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-white">
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
-        </div>
+      <div suppressHydrationWarning>
+        {children}
       </div>
     );
   }
