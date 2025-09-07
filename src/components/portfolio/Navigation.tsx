@@ -8,12 +8,17 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function Navigation() {
+  const [mounted, setMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
   const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     // Only run in browser environment
@@ -97,6 +102,11 @@ export default function Navigation() {
       }
     };
   }, []);
+
+  // Don't render until mounted to prevent hydration issues
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <nav className="fixed top-0 md:top-4 w-full z-50">

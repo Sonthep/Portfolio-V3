@@ -45,9 +45,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
-  // Prevent hydration mismatch
+  // Prevent hydration mismatch and show loading state
   if (!mounted) {
-    return <div style={{ visibility: 'hidden' }}>{children}</div>;
+    return (
+      <div className="min-h-screen bg-white">
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -60,7 +66,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+    // Return default theme in case of error to prevent crash
+    console.warn("useTheme must be used within a ThemeProvider. Using default theme.");
+    return {
+      theme: "dark" as Theme,
+      toggleTheme: () => {}
+    };
   }
   return context;
 } 
