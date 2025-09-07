@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
 export default function OverviewSection() {
@@ -16,7 +16,7 @@ export default function OverviewSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: {
       opacity: 1,
@@ -24,18 +24,21 @@ export default function OverviewSection() {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
       },
     },
   };
 
-  const floatVariants = {
+  const floatVariants: Variants = {
     animate: {
       y: [-15, 15, -15],
       x: [-5, 5, -5],
       transition: {
         duration: 8,
         repeat: Infinity,
+        type: "tween",
         ease: "easeInOut",
       },
     },

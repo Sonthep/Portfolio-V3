@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
 const experience = [
@@ -79,25 +79,27 @@ export default function ExperienceSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 60 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
       },
     },
   };
 
-  const iconVariants = {
+  const iconVariants: Variants = {
     hidden: { scale: 0, rotate: -90 },
     visible: {
       scale: 1,
       rotate: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 15,
         delay: 0.3,

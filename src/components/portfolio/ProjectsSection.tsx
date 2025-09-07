@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import SectionHeader from "./SectionHeader";
 
@@ -117,7 +117,7 @@ export default function ProjectsSection() {
 		},
 	};
 
-	const itemVariants = {
+	const itemVariants: Variants = {
 		hidden: { opacity: 0, y: 60, scale: 0.95 },
 		visible: {
 			opacity: 1,
@@ -125,18 +125,21 @@ export default function ProjectsSection() {
 			scale: 1,
 			transition: {
 				duration: 0.8,
-				ease: [0.25, 0.46, 0.45, 0.94],
+				type: "spring",
+				stiffness: 100,
+				damping: 15,
 			},
 		},
 	};
 
-	const floatVariants = {
+	const floatVariants: Variants = {
 		animate: {
 			y: [-10, 10, -10],
 			x: [-5, 5, -5],
 			transition: {
 				duration: 6,
 				repeat: Infinity,
+				type: "tween",
 				ease: "easeInOut",
 			},
 		},

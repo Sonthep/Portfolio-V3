@@ -3,7 +3,9 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true
   },
-  // Disable prerendering for not-found page
+  // Fix for multiple lockfiles issue
+  outputFileTracingRoot: undefined,
+  // Generate unique build ID to force cache invalidation
   generateBuildId: async () => {
     return 'build-' + Date.now()
   },
@@ -42,7 +44,21 @@ const nextConfig = {
   trailingSlash: false,
   generateEtags: false,
   compress: true,
-  poweredByHeader: false
+  poweredByHeader: false,
+  // Ensure proper headers for static assets
+  async headers() {
+    return [
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig

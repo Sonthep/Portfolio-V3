@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -238,7 +238,7 @@ export default function CertificationsSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: {
       opacity: 1,
@@ -246,18 +246,21 @@ export default function CertificationsSection() {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
       },
     },
   };
 
-  const floatVariants = {
+  const floatVariants: Variants = {
     animate: {
       y: [-10, 10, -10],
       x: [-5, 5, -5],
       transition: {
         duration: 8,
         repeat: Infinity,
+        type: "tween",
         ease: "easeInOut",
       },
     },

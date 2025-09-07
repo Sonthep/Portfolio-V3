@@ -1,125 +1,152 @@
-# 🚀 Sonthep Simmalee Portfolio
+# Portfolio V3
 
-<p align="center">
-  <img src="public/globe.svg" alt="Portfolio Logo" width="120" />
-</p>
+Modern portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
 
-<p align="center">
-  <b>Modern, animated, and fully responsive portfolio website</b><br/>
-  <i>Showcasing expertise in full-stack, low-code, and modern web technologies</i>
-</p>
+## 🚀 Features
 
-<p align="center">
-  <a href="https://sonthep.dev"><img src="https://img.shields.io/badge/Portfolio-Live-brightgreen" /></a>
-  <img src="https://img.shields.io/badge/Next.js-15.3-black" />
-  <img src="https://img.shields.io/badge/TypeScript-5.0-blue" />
-  <img src="https://img.shields.io/badge/Tailwind%20CSS-3.0-38B2AC" />
-  <img src="https://img.shields.io/badge/Framer%20Motion-11.0-FF0055" />
-</p>
+- **Next.js 15** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **PostHog** for analytics
+- **Responsive design**
+- **Dark/Light theme**
+- **SEO optimized**
 
----
+## 📦 Installation
 
-## ✨ Features
-
-- 🎨 **Dark & Light Theme** — Seamless, beautiful gradients
-- 🌀 **Animated UI** — Framer Motion transitions & effects
-- 📱 **Responsive Design** — Mobile-first, pixel-perfect
-- 🧩 **Modular Sections** — Projects, Experience, Tech Stack, Certifications, Testimonials
-- 🚀 **SEO Optimized** — Meta tags & accessibility best practices
-- ⚡ **Easy Customization** — Modular, well-structured codebase
-
----
-
-## 🛠️ Tech Stack
-
-| Frontend      | Styling        | Animation      | Icons      |
-| ------------- | ------------- | -------------- | ---------- |
-| Next.js 15.3  | Tailwind CSS  | Framer Motion  | Iconify    |
-| TypeScript    | Custom CSS    |                |            |
-
----
-
-## 🚀 Getting Started
-
+1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/portfolio.git
-cd portfolio
-npm install # or pnpm install or yarn install
-npm run dev # or pnpm dev or yarn dev
+git clone <repository-url>
+cd Portfolio-V3
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
+2. Install dependencies:
+```bash
+npm install
+```
 
-### Build for Production
+3. Create environment file:
+```bash
+cp env-example .env
+# Edit .env with your configuration
+```
+
+## 🏗️ Development
+
+Start the development server:
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically
+
+### Manual Build
 
 ```bash
 npm run build
-npm start
+npm run start
 ```
 
----
+## 🛠️ Configuration
 
-## 🎨 Customization
+### Environment Variables
 
-- **Personal Info**: `src/app/layout.tsx`, `src/components/portfolio/OverviewSection.tsx`
-- **Projects**: `src/components/portfolio/ProjectsSection.tsx`
-- **Experience**: `src/components/portfolio/ExperienceSection.tsx`
-- **Tech Stack**: `src/components/portfolio/TechStackSection.tsx`
-- **Styling**: `tailwind.config.js`, `src/app/globals.css`
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
----
+### Next.js Config
 
-## 📂 Project Structure
+Key configurations in `next.config.js`:
+- `experimental.scrollRestoration` - Smooth scrolling
+- `generateBuildId` - Unique build IDs
+- `headers` - Static asset caching
+- `rewrites` - PostHog API proxy
+
+## 📁 Project Structure
 
 ```
 Portfolio-V3/
 ├── src/
-│   ├── app/
+│   ├── app/                 # Next.js app router
+│   │   ├── layout.tsx      # Root layout
+│   │   ├── page.tsx        # Home page
+│   │   ├── projects/       # Projects pages
+│   │   └── project/[slug]/ # Dynamic project pages
 │   ├── components/
-│   │   └── portfolio/
-│   ├── lib/
-│   └── public/
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-└── README.md
+│   │   ├── portfolio/      # Portfolio components
+│   │   └── ThemeProvider.tsx
+│   └── data/               # Static data
+├── public/                 # Static assets
+└── vercel.json            # Vercel deployment config
 ```
 
----
+## 🔧 Troubleshooting
 
-## 📱 Browser Support
+### Build Issues
 
-- Chrome, Firefox, Safari, Edge (latest)
-- Mobile browsers
+If you encounter build errors:
 
----
+1. **Clear cache**:
+```bash
+npm cache clean --force
+rm -rf .next
+npm install
+```
 
-## 🔧 Scripts
+2. **Check lockfiles**:
+- Ensure only one package manager is used
+- Remove conflicting lockfiles if present
 
-- `npm run dev` — Start development server
-- `npm run build` — Build for production
-- `npm start` — Start production server
-- `npm run lint` — Run ESLint
+3. **Environment variables**:
+- Verify `.env` file exists
+- Check variable names match usage
 
----
+### Deployment Issues
 
+For Vercel deployment problems:
 
-## 👨‍💻 Author
+1. **Clear build cache** in Vercel dashboard
+2. **Redeploy** with "Ignore build cache" enabled
+3. **Check logs** for specific error messages
+4. **Verify environment variables** in Vercel
 
-**Sonthep Simmalee**  
-[🌐 sonthep.dev](https://sonthep.dev)  
-📧 sonthep.simmalee@gmail.com  
-📍 Nonthaburi, Thailand
+### Runtime Errors
 
----
+If the site shows blank/white page:
 
-## 🙏 Acknowledgments
+1. **Check browser console** for JavaScript errors
+2. **Clear browser cache** (Ctrl+F5)
+3. **Try incognito mode** to avoid extensions
+4. **Verify static assets** are loading correctly
 
-- Next.js, Tailwind CSS, Framer Motion, Iconify
-- Inspiration from modern UI/UX and open source communities
+## 📄 Scripts
 
----
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-<p align="center">
-  <b>Made with passion for technology and user experience.</b>
-</p>
+## 🎨 Customization
+
+- **Colors**: Edit `tailwind.config.js`
+- **Fonts**: Update `src/app/layout.tsx`
+- **Content**: Modify files in `src/data/`
+- **Components**: Customize in `src/components/`
+
+## 📧 Contact
+
+For questions or issues, please open an issue on GitHub.

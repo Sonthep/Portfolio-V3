@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useState, useMemo } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
     );
   }, [searchQuery, projects]);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -35,7 +35,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 60, scale: 0.95 },
     visible: {
       opacity: 1,
@@ -43,7 +43,9 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
       },
     },
   };
