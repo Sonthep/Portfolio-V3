@@ -8,6 +8,7 @@ import "./globals.css";
 
 // Force dynamic rendering to avoid prerender errors
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 const inter = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"] });
 

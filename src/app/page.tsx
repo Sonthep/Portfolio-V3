@@ -14,6 +14,7 @@ import {
 
 // Force dynamic rendering to avoid prerender errors
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 export default function Portfolio() {
   const [mounted, setMounted] = useState(false);

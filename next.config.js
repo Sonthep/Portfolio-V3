@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    scrollRestoration: true
+    scrollRestoration: true,
+    // Disable all SSR for problematic pages
+    forceSwcTransforms: true
   },
   serverExternalPackages: [],
   // Fix for multiple lockfiles issue
@@ -12,6 +14,8 @@ const nextConfig = {
   },
   // Disable React strict mode to avoid hydration issues
   reactStrictMode: false,
+  // Force all pages to be client-side rendered
+  output: undefined,
   images: {
     domains: ['github.com', 'raw.githubusercontent.com'],
     unoptimized: true
