@@ -13,6 +13,7 @@ import {
 
 // Force dynamic rendering to avoid prerender errors
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 export default function Portfolio() {
   return (

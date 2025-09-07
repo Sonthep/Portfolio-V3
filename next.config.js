@@ -3,12 +3,15 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true
   },
+  serverExternalPackages: [],
   // Fix for multiple lockfiles issue
   outputFileTracingRoot: undefined,
   // Generate unique build ID to force cache invalidation
   generateBuildId: async () => {
     return 'build-' + Date.now()
   },
+  // Disable React strict mode to avoid hydration issues
+  reactStrictMode: false,
   images: {
     domains: ['github.com', 'raw.githubusercontent.com'],
     unoptimized: true
