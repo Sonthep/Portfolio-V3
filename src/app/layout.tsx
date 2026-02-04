@@ -1,5 +1,4 @@
-// Temporarily disable PostHog during build to avoid SSR errors
-// import { PostHogProvider } from "@/components/PostHogProvider";
+import { PostHogProvider } from "@/components/PostHogProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navigation from "@/components/portfolio/Navigation";
 import type { Metadata } from "next";
@@ -8,7 +7,6 @@ import "./globals.css";
 
 // Force dynamic rendering to avoid prerender errors
 export const dynamic = 'force-dynamic';
-export const runtime = 'edge';
 
 const inter = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
@@ -32,10 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
-        <ThemeProvider>
-          <Navigation />
-          {children}
-        </ThemeProvider>
+        <PostHogProvider>
+          <ThemeProvider>
+            <Navigation />
+            {children}
+          </ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

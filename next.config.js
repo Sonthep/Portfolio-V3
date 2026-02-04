@@ -3,7 +3,6 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
     // Disable all SSR for problematic pages
-    forceSwcTransforms: true
   },
   serverExternalPackages: [],
   // Fix for multiple lockfiles issue
@@ -40,13 +39,6 @@ const nextConfig = {
   skipTrailingSlashRedirect: true,
   // Disable static generation timeout for not-found pages
   staticPageGenerationTimeout: 1000,
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.(ico|png|jpg|jpeg|gif|svg)$/,
-      type: 'asset/resource'
-    });
-    return config;
-  },
   // Add these configurations to fix deployment issues
   trailingSlash: false,
   generateEtags: false,
