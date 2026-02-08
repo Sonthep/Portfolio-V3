@@ -168,7 +168,7 @@ export default function TechStackSection() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-16"
+      className="mb-16 mx-6 md:mx-6 lg:mx-8"
     >
       <SectionHeader
         tagText="Tech Arsenal"
@@ -178,10 +178,10 @@ export default function TechStackSection() {
         showUnderline={false}
         centered={true}
       />
-      <div className="mb-8">
+      <div className="mb-12">
 
         {/* Category Filter */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-8">
           {categories.map((category) => (
             <button
               key={category}
@@ -199,7 +199,7 @@ export default function TechStackSection() {
 
       {activeCategory === "All" ? (
         // Categorized view
-        <div className="space-y-8">
+        <div className="space-y-12">
           {Object.entries(techStackData).map(([categoryName, techs]) => (
             <motion.div
               key={categoryName}
@@ -208,10 +208,10 @@ export default function TechStackSection() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+              <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200">
                 {categoryName}
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6">
                 {techs.map((tech, index) => (
                   <TechCard
                     key={tech.name}
@@ -225,7 +225,7 @@ export default function TechStackSection() {
         </div>
       ) : (
         // Filtered view
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6">
           {filteredTech.map((tech, index) => (
             <TechCard
               key={tech.name}
@@ -279,9 +279,9 @@ function TechCard({
             <div className="absolute bottom-6 right-8 w-0.5 h-0.5 bg-gray-300 dark:bg-gray-600 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
           </div>
 
-          <div className="p-4 relative">
+          <div className="p-6 relative">
             {/* Icon Container with Enhanced Design */}
-            <div className="flex justify-center mb-3">
+            <div className="flex justify-center mb-4">
               <div className="relative group/icon">
                 {/* Icon Background with Subtle Pattern */}
                 <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-3 rounded-xl border border-gray-200/50 dark:border-gray-600/50 group-hover:border-gray-300/70 dark:group-hover:border-gray-500/70 transition-all duration-300">
