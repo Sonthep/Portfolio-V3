@@ -262,14 +262,14 @@ function TechCard({
       {/* Card Background with Gradient Border */}
       <div className="relative">
         {/* Subtle Gradient Glow Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-3 rounded-xl border border-gray-200/50 dark:border-gray-600/50 group-hover:border-gray-300/70 dark:group-hover:border-gray-500/70 transition-all duration-300 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl scale-105" />
+        <div className="absolute inset-0 bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-3 rounded-xl border border-gray-200/50 dark:border-gray-600/50 group-hover:border-gray-300/70 dark:group-hover:border-gray-500/70 transition-all duration-300 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl scale-105" />
 
         {/* Main Card */}
         <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl border border-gray-200/60 dark:border-gray-700/60 group-hover:border-gray-300/80 dark:group-hover:border-gray-600/80 transition-all duration-300 shadow-lg group-hover:shadow-2xl group-hover:shadow-black/5 dark:group-hover:shadow-black/40 overflow-hidden">
 
           {/* Subtle Top Accent - Much More Refined */}
-          <div className="relative h-0.5 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent">
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-300 dark:via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative h-0.5 bg-linear-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent">
+            <div className="absolute inset-0 bg-linear-to-r from-gray-300 dark:via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
 
           {/* Floating Particles Background */}
@@ -284,7 +284,7 @@ function TechCard({
             <div className="flex justify-center mb-4">
               <div className="relative group/icon">
                 {/* Icon Background with Subtle Pattern */}
-                <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-3 rounded-xl border border-gray-200/50 dark:border-gray-600/50 group-hover:border-gray-300/70 dark:group-hover:border-gray-500/70 transition-all duration-300">
+                <div className="relative bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-3 rounded-xl border border-gray-200/50 dark:border-gray-600/50 group-hover:border-gray-300/70 dark:group-hover:border-gray-500/70 transition-all duration-300">
                   <Icon
                     icon={tech.icon}
                     className="group-hover/icon:scale-110 group-hover/icon:rotate-3 transition-all duration-300"
@@ -293,7 +293,7 @@ function TechCard({
                   />
 
                   {/* Subtle Icon Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
                 </div>
               </div>
             </div>

@@ -49,7 +49,7 @@ export default function TypewriterRole() {
     >
       {/* Floating Orbital Elements */}
       <motion.div
-        className="absolute top-0 right-16 w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg"
+        className="absolute top-0 right-16 w-2 h-2 bg-linear-to-r from-blue-500 to-purple-500 rounded-full shadow-lg"
         animate={{
           rotate: 360,
           scale: [1, 1.3, 1],
@@ -64,7 +64,7 @@ export default function TypewriterRole() {
       />
 
       <motion.div
-        className="absolute bottom-2 left-12 w-1.5 h-1.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-lg"
+        className="absolute bottom-2 left-12 w-1.5 h-1.5 bg-linear-to-r from-purple-500 to-pink-500 rounded-full shadow-lg"
         animate={{
           rotate: -360,
           scale: [1, 1.4, 1],
@@ -101,7 +101,7 @@ export default function TypewriterRole() {
 
         {/* Shimmer Effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-2xl"
+          className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent rounded-2xl"
           animate={{
             x: ["-100%", "100%"],
           }}

@@ -35,11 +35,11 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 			<div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/30 dark:border-gray-700/40 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-500 overflow-hidden shadow-lg md:shadow-xl hover:shadow-xl md:hover:shadow-2xl">
 				{/* Project Header with Gradient */}
 				<div
-					className={`relative bg-gradient-to-br ${project.gradient} p-4 sm:p-6 md:p-8 lg:p-10`}
+					className={`relative bg-linear-to-br ${project.gradient} p-4 sm:p-6 md:p-8 lg:p-10`}
 				>
 					{/* Animated background pattern */}
 					<div className="absolute inset-0 opacity-10">
-						<div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[length:20px_20px] md:bg-[length:30px_30px]" />
+						<div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-size-[20px_20px] md:bg-size-[30px_30px]" />
 					</div>
 
 					{/* Floating tech icons - hidden on mobile */}
@@ -73,7 +73,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 						{/* Project Meta Info */}
 						<div className="flex flex-wrap items-center gap-2 md:gap-3 mb-4 md:mb-6">
 							<motion.span
-								className="px-2.5 py-1.5 md:px-4 md:py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white text-xs md:text-sm font-semibold"
+								className="px-2.5 py-1.5 md:px-4 md:py-2 bg-white/20 backdrop-blur-xs border border-white/30 rounded-full text-white text-xs md:text-sm font-semibold"
 								whileHover={{ scale: 1.05 }}
 							>
 								{project.category}
@@ -81,7 +81,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 
 							{project.highlight && (
 								<motion.span
-									className="px-2.5 py-1.5 md:px-4 md:py-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/30 text-yellow-200 rounded-full text-xs md:text-sm font-semibold flex items-center gap-1 md:gap-2"
+									className="px-2.5 py-1.5 md:px-4 md:py-2 bg-yellow-500/20 backdrop-blur-xs border border-yellow-400/30 text-yellow-200 rounded-full text-xs md:text-sm font-semibold flex items-center gap-1 md:gap-2"
 									whileHover={{ scale: 1.05 }}
 								>
 									<Icon
@@ -97,7 +97,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 							)}
 
 							<motion.span
-								className={`px-2.5 py-1.5 md:px-4 md:py-2 backdrop-blur-sm rounded-full text-xs md:text-sm font-semibold flex items-center gap-1 md:gap-2 ${
+								className={`px-2.5 py-1.5 md:px-4 md:py-2 backdrop-blur-xs rounded-full text-xs md:text-sm font-semibold flex items-center gap-1 md:gap-2 ${
 									project.status === "Completed"
 										? "bg-green-500/20 text-green-200 border border-green-400/30"
 										: "bg-orange-500/20 text-orange-200 border border-orange-400/30"
@@ -114,11 +114,11 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 								{project.status}
 							</motion.span>
 
-							<span className="px-2.5 py-1.5 md:px-4 md:py-2 bg-black/20 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs md:text-sm font-medium">
+							<span className="px-2.5 py-1.5 md:px-4 md:py-2 bg-black/20 backdrop-blur-xs border border-white/20 rounded-full text-white text-xs md:text-sm font-medium">
 								{project.timeline}
 							</span>
 
-							<span className="hidden sm:inline-block px-2.5 py-1.5 md:px-4 md:py-2 bg-black/20 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs md:text-sm font-medium">
+							<span className="hidden sm:inline-block px-2.5 py-1.5 md:px-4 md:py-2 bg-black/20 backdrop-blur-xs border border-white/20 rounded-full text-white text-xs md:text-sm font-medium">
 								{project.clientType}
 							</span>
 						</div>
@@ -140,7 +140,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 						<div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
 							<Link
 								href={project.github}
-								className="flex items-center justify-center gap-2 md:gap-3 px-4 py-2.5 md:px-6 md:py-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-lg md:rounded-xl hover:bg-white/30 transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl active:scale-95"
+								className="flex items-center justify-center gap-2 md:gap-3 px-4 py-2.5 md:px-6 md:py-3 bg-white/20 backdrop-blur-xs border border-white/30 text-white rounded-lg md:rounded-xl hover:bg-white/30 transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl active:scale-95"
 							>
 								<Icon
 									icon="solar:code-bold"
@@ -173,7 +173,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 						{/* Features Section */}
 						<div>
 							<h4 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-								<div className="p-1.5 md:p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg md:rounded-xl">
+								<div className="p-1.5 md:p-2 bg-linear-to-r from-blue-500 to-purple-600 rounded-lg md:rounded-xl">
 									<Icon
 										icon="solar:settings-bold"
 										className="text-white w-[18px] h-[18px] md:w-6 md:h-6"
@@ -193,7 +193,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 									>
 										<Icon
 											icon="solar:check-circle-bold"
-											className="text-green-500 mt-0.5 flex-shrink-0 w-4 h-4 md:w-5 md:h-5"
+											className="text-green-500 mt-0.5 shrink-0 w-4 h-4 md:w-5 md:h-5"
 										/>
 										<span className="text-sm md:text-base leading-relaxed">
 											{feature}
@@ -206,7 +206,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 						{/* Deliverables Section */}
 						<div className="mt-6 lg:mt-0">
 							<h4 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-								<div className="p-1.5 md:p-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg md:rounded-xl">
+								<div className="p-1.5 md:p-2 bg-linear-to-r from-green-500 to-emerald-600 rounded-lg md:rounded-xl">
 									<Icon
 										icon="solar:delivery-bold"
 										className="text-white w-[18px] h-[18px] md:w-6 md:h-6"
@@ -226,7 +226,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 									>
 										<Icon
 											icon="solar:box-bold"
-											className="text-blue-500 mt-0.5 flex-shrink-0 w-4 h-4 md:w-5 md:h-5"
+											className="text-blue-500 mt-0.5 shrink-0 w-4 h-4 md:w-5 md:h-5"
 										/>
 										<span className="text-sm md:text-base leading-relaxed">
 											{deliverable}
@@ -240,7 +240,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 					{/* Tech Stack Section */}
 					<div className="mt-6 md:mt-8 lg:mt-12 pt-6 md:pt-8 border-t border-gray-200/50 dark:border-gray-700/50">
 						<h4 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-							<div className="p-1.5 md:p-2 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg md:rounded-xl">
+							<div className="p-1.5 md:p-2 bg-linear-to-r from-purple-500 to-pink-600 rounded-lg md:rounded-xl">
 								<Icon
 									icon="solar:code-bold"
 									className="text-white w-[18px] h-[18px] md:w-6 md:h-6"
@@ -257,7 +257,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 									viewport={{ once: true }}
 									transition={{ delay: techIndex * 0.05 }}
 									whileHover={{ scale: 1.05, y: -2 }}
-									className="px-2.5 py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl text-xs md:text-sm font-medium border border-gray-200 dark:border-gray-600 hover:shadow-md md:hover:shadow-lg transition-all duration-200"
+									className="px-2.5 py-1.5 md:px-4 md:py-2 bg-linear-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl text-xs md:text-sm font-medium border border-gray-200 dark:border-gray-600 hover:shadow-md md:hover:shadow-lg transition-all duration-200"
 								>
 									{tech}
 								</motion.span>

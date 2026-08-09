@@ -61,19 +61,19 @@ export default function ProjectsSection() {
 				<motion.div
 					variants={floatVariants}
 					animate="animate"
-					className="absolute top-5 md:top-20 right-2 md:right-16 w-12 sm:w-16 md:w-32 h-12 sm:h-16 md:h-32 bg-gradient-to-br from-purple-400/15 md:from-purple-400/20 to-pink-400/15 md:to-pink-400/20 rounded-full blur-xl md:blur-4xl"
+					className="absolute top-5 md:top-20 right-2 md:right-16 w-12 sm:w-16 md:w-32 h-12 sm:h-16 md:h-32 bg-linear-to-br from-purple-400/15 md:from-purple-400/20 to-pink-400/15 md:to-pink-400/20 rounded-full blur-xl md:blur-4xl"
 				/>
 				<motion.div
 					variants={floatVariants}
 					animate="animate"
 					style={{ animationDelay: "2s" }}
-					className="absolute bottom-5 md:bottom-20 left-2 md:left-16 w-16 sm:w-20 md:w-40 h-16 sm:h-20 md:h-40 bg-gradient-to-br from-blue-400/10 md:from-blue-400/15 to-cyan-400/10 md:to-cyan-400/15 rounded-full blur-xl md:blur-2xl"
+					className="absolute bottom-5 md:bottom-20 left-2 md:left-16 w-16 sm:w-20 md:w-40 h-16 sm:h-20 md:h-40 bg-linear-to-br from-blue-400/10 md:from-blue-400/15 to-cyan-400/10 md:to-cyan-400/15 rounded-full blur-xl md:blur-2xl"
 				/>
 				<motion.div
 					variants={floatVariants}
 					animate="animate"
 					style={{ animationDelay: "4s" }}
-					className="hidden lg:block absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-full blur-xl"
+					className="hidden lg:block absolute top-1/3 right-1/3 w-20 h-20 bg-linear-to-br from-green-400/20 to-emerald-400/20 rounded-full blur-xl"
 				/>
 			</div>
 
@@ -115,7 +115,7 @@ export default function ProjectsSection() {
 										Discover my complete portfolio on GitHub
 									</p>
 								</div>
-								<div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-full">
+								<div className="bg-linear-to-r from-blue-500 to-purple-600 p-3 rounded-full">
 									<Icon
 										icon="solar:arrow-right-bold"
 										className="w-6 h-6 text-white"
@@ -132,7 +132,7 @@ export default function ProjectsSection() {
 						whileHover={{ scale: 1.02 }}
 						className="block w-full"
 					>
-						<div className="bg-gradient-to-r from-indigo-500/90 to-purple-600/90 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/30 hover:border-white/50 transition-all duration-500 overflow-hidden shadow-lg md:shadow-xl hover:shadow-xl md:hover:shadow-2xl p-6 md:p-8">
+						<div className="bg-linear-to-r from-indigo-500/90 to-purple-600/90 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/30 hover:border-white/50 transition-all duration-500 overflow-hidden shadow-lg md:shadow-xl hover:shadow-xl md:hover:shadow-2xl p-6 md:p-8">
 							<div className="flex items-center justify-between">
 								<div>
 									<h3 className="text-lg md:text-xl font-semibold text-white mb-2">
@@ -172,7 +172,7 @@ export default function ProjectsSection() {
 										Check out my GitHub repository for additional projects
 									</p>
 								</div>
-								<div className="bg-gradient-to-r from-purple-500 to-pink-600 p-3 rounded-full">
+								<div className="bg-linear-to-r from-purple-500 to-pink-600 p-3 rounded-full">
 									<Icon
 										icon="solar:arrow-up-right-bold"
 										className="w-6 h-6 text-white"
@@ -191,7 +191,7 @@ export default function ProjectsSection() {
 				>
 					<Link href="#contact">
 						<motion.div
-							className="inline-flex items-center gap-2 md:gap-3 px-4 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-blue-500/20 dark:border-purple-500/20 rounded-xl md:rounded-2xl"
+							className="inline-flex items-center gap-2 md:gap-3 px-4 py-2.5 md:px-6 md:py-3 bg-linear-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-xs border border-blue-500/20 dark:border-purple-500/20 rounded-xl md:rounded-2xl"
 							whileHover={{ scale: 1.05 }}
 						>
 							<Icon

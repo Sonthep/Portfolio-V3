@@ -66,21 +66,21 @@ export default function CertificationsSection() {
 					<motion.div
 						variants={floatVariants}
 						animate="animate"
-						className="absolute top-20 right-16 w-32 h-32 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-2xl"
+						className="absolute top-20 right-16 w-32 h-32 bg-linear-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-2xl"
 					/>
 					<motion.div
 						variants={floatVariants}
 						animate="animate"
 						style={{ animationDelay: "3s" }}
-						className="absolute bottom-16 left-16 w-48 h-48 bg-gradient-to-br from-green-400/25 to-cyan-400/25 rounded-full blur-2xl"
+						className="absolute bottom-16 left-16 w-48 h-48 bg-linear-to-br from-green-400/25 to-cyan-400/25 rounded-full blur-2xl"
 					/>
 					<motion.div
 						variants={floatVariants}
 						animate="animate"
 						style={{ animationDelay: "6s" }}
-						className="absolute top-1/2 left-1/3 w-20 h-20 bg-gradient-to-br from-pink-400/30 to-orange-400/30 rounded-full blur-xl"
+						className="absolute top-1/2 left-1/3 w-20 h-20 bg-linear-to-br from-pink-400/30 to-orange-400/30 rounded-full blur-xl"
 					/>
-					<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl" />
+					<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-linear-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl" />
 				</div>
 
 				<div className="relative z-10">
@@ -120,17 +120,17 @@ export default function CertificationsSection() {
 					>
 						<motion.div
 							whileHover={{ scale: 1.02, y: -2 }}
-							className="inline-flex items-center gap-6 px-8 py-4 bg-gradient-to-r from-blue-50/90 to-purple-50/90 dark:from-blue-900/30 dark:to-purple-900/30 backdrop-blur-sm border border-blue-200/50 dark:border-blue-800/50 hover:border-blue-300/70 dark:hover:border-blue-600/70 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500"
+							className="inline-flex items-center gap-6 px-8 py-4 bg-linear-to-r from-blue-50/90 to-purple-50/90 dark:from-blue-900/30 dark:to-purple-900/30 backdrop-blur-xs border border-blue-200/50 dark:border-blue-800/50 hover:border-blue-300/70 dark:hover:border-blue-600/70 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500"
 						>
 							<div className="flex items-center gap-3">
-								<div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl shadow-md">
+								<div className="p-2 bg-linear-to-r from-blue-500 to-purple-600 rounded-xl shadow-md">
 									<Icon icon="solar:star-outline" className="text-white" width={18} height={18} />
 								</div>
 								<span className="text-blue-700 dark:text-blue-300 text-sm md:text-base font-semibold">
 									2 Professional Certifications
 								</span>
 							</div>
-							<div className="w-px h-6 bg-gradient-to-b from-blue-300/50 via-purple-300/50 to-blue-300/50"></div>
+							<div className="w-px h-6 bg-linear-to-b from-blue-300/50 via-purple-300/50 to-blue-300/50"></div>
 							<div className="flex items-center gap-3">
 								<Icon icon="solar:verified-check-bold" className="text-blue-500" width={22} height={22} />
 								<span className="text-gray-600 dark:text-gray-400 text-sm md:text-base font-medium">

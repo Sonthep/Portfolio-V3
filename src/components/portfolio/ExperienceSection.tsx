@@ -120,7 +120,7 @@ export default function ExperienceSection() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-green-500/3 to-blue-500/3 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-linear-to-r from-green-500/3 to-blue-500/3 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
@@ -148,11 +148,11 @@ export default function ExperienceSection() {
             >
               <div className="flex flex-col sm:flex-row sm:items-start gap-6 md:gap-8 lg:gap-12">
                 {/* Company Icon & Info */}
-                <div className="flex-shrink-0 flex flex-col items-center sm:items-start">
+                <div className="shrink-0 flex flex-col items-center sm:items-start">
                   <motion.div
                     variants={iconVariants}
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className={`w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-gradient-to-br ${exp.companyColor} flex items-center justify-center shadow-xl md:shadow-2xl mb-3 md:mb-4 relative overflow-hidden group-hover:shadow-2xl md:group-hover:shadow-3xl transition-all duration-500`}
+                    className={`w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-linear-to-br ${exp.companyColor} flex items-center justify-center shadow-xl md:shadow-2xl mb-3 md:mb-4 relative overflow-hidden group-hover:shadow-2xl md:group-hover:shadow-3xl transition-all duration-500`}
                   >
                     <Icon
                       icon={exp.companyIcon!}
@@ -161,7 +161,7 @@ export default function ExperienceSection() {
                       height={40}
                     />
                     {/* Animated background gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${exp.companyColor} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                    <div className={`absolute inset-0 bg-linear-to-br ${exp.companyColor} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                   </motion.div>
                 </div>
 
@@ -235,7 +235,7 @@ export default function ExperienceSection() {
                           transition={{ delay: 0.7 + achIndex * 0.1 }}
                           className="flex items-start gap-3 md:gap-4 group/achievement hover:translate-x-1 md:hover:translate-x-2 transition-transform duration-300"
                         >
-                          <div className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center mt-0.5 shadow-md md:shadow-lg group-hover/achievement:scale-110 transition-transform duration-300">
+                          <div className="shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-linear-to-br from-green-400 to-blue-500 flex items-center justify-center mt-0.5 shadow-md md:shadow-lg group-hover/achievement:scale-110 transition-transform duration-300">
                             <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full" />
                           </div>
                           <span className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base">
@@ -285,7 +285,7 @@ export default function ExperienceSection() {
                   whileInView={{ opacity: 1, scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 1.2, duration: 0.8 }}
-                  className="mt-6 md:mt-12 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent origin-left"
+                  className="mt-6 md:mt-12 h-px bg-linear-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent origin-left"
                 />
               )}
             </motion.div>
@@ -303,7 +303,7 @@ export default function ExperienceSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
             {/* <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-50/50 to-blue-100/30 dark:from-blue-950/20 dark:to-blue-900/10 border border-blue-200/30 dark:border-blue-800/20 hover:border-blue-300/50 dark:hover:border-blue-600/30 transition-all duration-500"
+              className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-linear-to-br from-blue-50/50 to-blue-100/30 dark:from-blue-950/20 dark:to-blue-900/10 border border-blue-200/30 dark:border-blue-800/20 hover:border-blue-300/50 dark:hover:border-blue-600/30 transition-all duration-500"
             >
               <div className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">5+</div>
               <div className="text-gray-600 dark:text-gray-400 font-medium text-base md:text-lg">Years Experience</div>
@@ -311,7 +311,7 @@ export default function ExperienceSection() {
 
             {/* <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-green-50/50 to-green-100/30 dark:from-green-950/20 dark:to-green-900/10 border border-green-200/30 dark:border-green-800/20 hover:border-green-300/50 dark:hover:border-green-600/30 transition-all duration-500"
+              className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-linear-to-br from-green-50/50 to-green-100/30 dark:from-green-950/20 dark:to-green-900/10 border border-green-200/30 dark:border-green-800/20 hover:border-green-300/50 dark:hover:border-green-600/30 transition-all duration-500"
             >
               <div className="text-4xl md:text-5xl font-bold text-green-600 dark:text-green-400 mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">50+</div>
               <div className="text-gray-600 dark:text-gray-400 font-medium text-base md:text-lg">Projects Completed</div>
@@ -319,7 +319,7 @@ export default function ExperienceSection() {
 
             {/* <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-purple-50/50 to-purple-100/30 dark:from-purple-950/20 dark:to-purple-900/10 border border-purple-200/30 dark:border-purple-800/20 hover:border-purple-300/50 dark:hover:border-purple-600/30 transition-all duration-500 sm:col-span-2 lg:col-span-1"
+              className="group p-6 md:p-8 rounded-xl md:rounded-2xl bg-linear-to-br from-purple-50/50 to-purple-100/30 dark:from-purple-950/20 dark:to-purple-900/10 border border-purple-200/30 dark:border-purple-800/20 hover:border-purple-300/50 dark:hover:border-purple-600/30 transition-all duration-500 sm:col-span-2 lg:col-span-1"
             >
               <div className="text-4xl md:text-5xl font-bold text-purple-600 dark:text-purple-400 mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">91%</div>
               <div className="text-gray-600 dark:text-gray-400 font-medium text-base md:text-lg">Success Rate</div>

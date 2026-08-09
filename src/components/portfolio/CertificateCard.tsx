@@ -23,7 +23,7 @@ export default function CertificateCard({ cert, variants, onView }: CertificateC
 			}}
 			className="group h-full"
 		>
-			<div className="h-full bg-white/70 dark:bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-300 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 overflow-hidden">
+			<div className="h-full bg-white/70 dark:bg-gray-900/50 backdrop-blur-xs rounded-2xl border border-gray-300 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 overflow-hidden">
 
 				{/* Header with gradient - keeping this as requested */}
 				<div className={`h-20 flex items-center justify-between bg-slate-100 dark:bg-slate-900 px-4 ${cert.color} relative overflow-hidden`}>
@@ -42,7 +42,7 @@ export default function CertificateCard({ cert, variants, onView }: CertificateC
 					</div>
 					<div className="flex items-center justify-start gap-0">
 						<div className="relative w-8 h-8 rounded-lg flex items-center justify-center">
-							<div className="absolute top-1/5 left-1/4 w-1/2 h-1/2 bg-white rounded-lg -z-0"></div>
+							<div className="absolute top-1/5 left-1/4 w-1/2 h-1/2 bg-white rounded-lg z-0"></div>
 							<Icon icon="solar:verified-check-bold" className="text-blue-500 z-10" width={26} height={26} />
 						</div>
 						<span className="text-blue-500 text-sm font-medium">Verified</span>
@@ -62,21 +62,21 @@ export default function CertificateCard({ cert, variants, onView }: CertificateC
 					{/* Provider Info */}
 					<div className="space-y-3 mb-6 bg-gray-50/50 dark:bg-gray-800/30 rounded-xl p-4 border border-gray-200/50 dark:border-gray-700/30">
 						<div className="flex items-center gap-3 text-sm">
-							<div className="w-5 h-5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-md flex items-center justify-center">
+							<div className="w-5 h-5 bg-linear-to-r from-blue-500 to-blue-600 rounded-md flex items-center justify-center">
 								<Icon icon="solar:buildings-2-bold" className="text-white" width={12} height={12} />
 							</div>
 							<span className="text-gray-600 dark:text-gray-400 font-medium">Provider:</span>
 							<span className="font-semibold text-gray-900 dark:text-white">{cert.provider}</span>
 						</div>
 						<div className="flex items-center gap-3 text-sm">
-							<div className="w-5 h-5 bg-gradient-to-r from-purple-500 to-purple-600 rounded-md flex items-center justify-center">
+							<div className="w-5 h-5 bg-linear-to-r from-purple-500 to-purple-600 rounded-md flex items-center justify-center">
 								<Icon icon="solar:monitor-smartphone-bold" className="text-white" width={12} height={12} />
 							</div>
 							<span className="text-gray-600 dark:text-gray-400 font-medium">Platform:</span>
 							<span className="font-semibold text-blue-600 dark:text-blue-400">{cert.platform}</span>
 						</div>
 						<div className="flex items-center gap-3 text-sm">
-							<div className="w-5 h-5 bg-gradient-to-r from-green-500 to-green-600 rounded-md flex items-center justify-center">
+							<div className="w-5 h-5 bg-linear-to-r from-green-500 to-green-600 rounded-md flex items-center justify-center">
 								<Icon icon="solar:calendar-bold" className="text-white" width={12} height={12} />
 							</div>
 							<span className="text-gray-600 dark:text-gray-400 font-medium">Issued:</span>
@@ -87,7 +87,7 @@ export default function CertificateCard({ cert, variants, onView }: CertificateC
 					{/* Skills */}
 					<div className="mb-6">
 						<div className="flex items-center gap-2 mb-3">
-							<div className="w-4 h-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-md flex items-center justify-center">
+							<div className="w-4 h-4 bg-linear-to-r from-amber-500 to-orange-500 rounded-md flex items-center justify-center">
 								<Icon icon="solar:star-bold" className="text-white" width={10} height={10} />
 							</div>
 							<h4 className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
@@ -98,7 +98,7 @@ export default function CertificateCard({ cert, variants, onView }: CertificateC
 							{cert.skills.map((skill, skillIndex) => (
 								<span
 									key={skillIndex}
-									className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-200/80 dark:from-gray-700/50 dark:to-gray-800/50 text-gray-800 dark:text-gray-200 rounded-lg text-xs font-medium border border-gray-300/60 dark:border-gray-600/50 hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/20 dark:hover:to-blue-800/20 hover:border-blue-300/60 dark:hover:border-blue-600/50 hover:text-blue-800 dark:hover:text-blue-200 transition-all duration-300 cursor-default shadow-sm hover:shadow-md"
+									className="px-3 py-1.5 bg-linear-to-r from-gray-100 to-gray-200/80 dark:from-gray-700/50 dark:to-gray-800/50 text-gray-800 dark:text-gray-200 rounded-lg text-xs font-medium border border-gray-300/60 dark:border-gray-600/50 hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/20 dark:hover:to-blue-800/20 hover:border-blue-300/60 dark:hover:border-blue-600/50 hover:text-blue-800 dark:hover:text-blue-200 transition-all duration-300 cursor-default shadow-xs hover:shadow-md"
 								>
 									{skill}
 								</span>
@@ -122,7 +122,7 @@ export default function CertificateCard({ cert, variants, onView }: CertificateC
 							</div>
 						</Link>
 						<button
-							className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 text-blue-700 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 rounded-lg border border-blue-200/60 dark:border-blue-700/50 hover:border-blue-300/80 dark:hover:border-blue-600/70 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/30 dark:hover:to-blue-700/30 transition-all duration-300 text-xs font-medium shadow-sm hover:shadow-md"
+							className="flex items-center gap-1.5 px-3 py-1.5 bg-linear-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 text-blue-700 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 rounded-lg border border-blue-200/60 dark:border-blue-700/50 hover:border-blue-300/80 dark:hover:border-blue-600/70 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/30 dark:hover:to-blue-700/30 transition-all duration-300 text-xs font-medium shadow-xs hover:shadow-md"
 							onClick={() => onView(cert)}
 						>
 							<Icon icon="solar:eye-bold" width={12} height={12} />

@@ -34,9 +34,9 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
     <main className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
       <div className="relative py-20 md:py-28 overflow-hidden">
-        <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
+        <div className={`absolute inset-0 bg-linear-to-br ${project.gradient} opacity-10`} />
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[length:20px_20px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-size-[20px_20px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

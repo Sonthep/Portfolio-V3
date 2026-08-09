@@ -25,11 +25,11 @@ export default function CertificatePreviewModal({ certificate, onClose }: Certif
 						initial={{ scale: 0.8, opacity: 0 }}
 						animate={{ scale: 1, opacity: 1 }}
 						exit={{ scale: 0.8, opacity: 0 }}
-						className="bg-gradient-to-br from-white/95 to-white/90 dark:from-gray-900/95 dark:to-gray-800/90 backdrop-blur-xl rounded-3xl shadow-2xl max-w-4xl max-h-[90vh] overflow-hidden relative border border-white/20 dark:border-gray-700/30"
+						className="bg-linear-to-br from-white/95 to-white/90 dark:from-gray-900/95 dark:to-gray-800/90 backdrop-blur-xl rounded-3xl shadow-2xl max-w-4xl max-h-[90vh] overflow-hidden relative border border-white/20 dark:border-gray-700/30"
 						onClick={(e) => e.stopPropagation()}
 					>
 						{/* Modal Header */}
-						<div className="flex items-center justify-between p-6 border-b border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
+						<div className="flex items-center justify-between p-6 border-b border-gray-200/50 dark:border-gray-700/50 backdrop-blur-xs">
 							<div>
 								<h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-1">
 									{certificate.title}
@@ -49,7 +49,7 @@ export default function CertificatePreviewModal({ certificate, onClose }: Certif
 						</div>
 
 						{/* Certificate Image */}
-						<div className="p-6 flex justify-center bg-gradient-to-br from-gray-50/50 to-white/50 dark:from-gray-800/50 dark:to-gray-900/50">
+						<div className="p-6 flex justify-center bg-linear-to-br from-gray-50/50 to-white/50 dark:from-gray-800/50 dark:to-gray-900/50">
 							<div className="relative max-w-full max-h-[60vh] overflow-hidden  shadow-lg border border-gray-200/50 dark:border-gray-700/50">
 								<Image
 									src={certificate.certificatePreview || ""}
@@ -63,7 +63,7 @@ export default function CertificatePreviewModal({ certificate, onClose }: Certif
 						</div>
 
 						{/* Modal Footer */}
-						<div className="flex items-center justify-between p-6 border-t border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
+						<div className="flex items-center justify-between p-6 border-t border-gray-200/50 dark:border-gray-700/50 backdrop-blur-xs">
 							<div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
 								Credential ID: <span className="text-gray-800 dark:text-gray-200">{certificate.credentialId}</span>
 							</div>
@@ -72,7 +72,7 @@ export default function CertificatePreviewModal({ certificate, onClose }: Certif
 									whileHover={{ scale: 1.05 }}
 									whileTap={{ scale: 0.95 }}
 									onClick={onClose}
-									className="px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl border border-red-500/50"
+									className="px-4 py-2 bg-linear-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl border border-red-500/50"
 								>
 									<Icon icon="solar:close-circle-bold" className="text-white" width={20} height={20} />
 									Close
@@ -82,7 +82,7 @@ export default function CertificatePreviewModal({ certificate, onClose }: Certif
 									whileTap={{ scale: 0.95 }}
 									href={certificate.certificatePreview || ""}
 									download={`${certificate.title}.png`}
-									className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl border border-blue-500/50"
+									className="px-4 py-2 bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl border border-blue-500/50"
 								>
 									<Icon icon="solar:download-bold" width={16} height={16} />
 									Download

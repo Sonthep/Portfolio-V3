@@ -111,11 +111,11 @@ export default function Navigation() {
       <nav className="fixed top-0 md:top-4 inset-x-0 z-50">
         <div className="md:max-w-fit md:border-2 md:rounded-full mx-auto px-7 py-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg">
           <div className="flex justify-between items-center gap-10">
-            <div className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 dark:from-indigo-400 dark:via-purple-400 dark:to-violet-400 bg-clip-text text-transparent">
+            <div className="text-xl font-bold bg-linear-to-r from-indigo-600 via-purple-600 to-violet-600 dark:from-indigo-400 dark:via-purple-400 dark:to-violet-400 bg-clip-text text-transparent">
               SS
             </div>
             <div className="flex items-center space-x-8">
-              <div className="w-6 h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="w-6 h-6 bg-gray-200 dark:bg-gray-700 rounded-sm animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function Navigation() {
       {/* Scroll Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gray-200 dark:bg-gray-800">
         <motion.div
-          className="h-full bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400"
+          className="h-full bg-linear-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -139,7 +139,7 @@ export default function Navigation() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 dark:from-indigo-400 dark:via-purple-400 dark:to-violet-400 bg-clip-text text-transparent"
+              className="text-xl font-bold bg-linear-to-r from-indigo-600 via-purple-600 to-violet-600 dark:from-indigo-400 dark:via-purple-400 dark:to-violet-400 bg-clip-text text-transparent"
             >
               SS
             </motion.div>
@@ -205,7 +205,7 @@ export default function Navigation() {
               whileHover={{ scale: 1.1, rotate: 15 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              className="p-3 rounded-full bg-gradient-to-r from-indigo-100 to-violet-100 dark:from-indigo-900 dark:to-violet-900 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="p-3 rounded-full bg-linear-to-r from-indigo-100 to-violet-100 dark:from-indigo-900 dark:to-violet-900 shadow-lg hover:shadow-xl transition-all duration-300"
               aria-label="Toggle theme"
             >
               <motion.div
@@ -233,7 +233,7 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm md:hidden z-40"
+              className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-xs md:hidden z-40"
             />
             {/* Menu Panel */}
             <motion.div
