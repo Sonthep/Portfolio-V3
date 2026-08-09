@@ -5,9 +5,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { allProjects } from "@/data/projects";
 
-// Force dynamic rendering to avoid prerender errors
-export const dynamic = 'force-dynamic';
-
 // Generate static params for dynamic routes
 export async function generateStaticParams() {
   return allProjects.map((project) => ({

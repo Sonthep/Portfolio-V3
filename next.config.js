@@ -2,7 +2,6 @@
 const nextConfig = {
   experimental: {
     scrollRestoration: true,
-    // Disable all SSR for problematic pages
   },
   serverExternalPackages: [],
   // Fix for multiple lockfiles issue
@@ -11,13 +10,12 @@ const nextConfig = {
   generateBuildId: async () => {
     return 'build-' + Date.now()
   },
-  // Disable React strict mode to avoid hydration issues
-  reactStrictMode: false,
-  // Force all pages to be client-side rendered
-  output: undefined,
+  reactStrictMode: true,
   images: {
-    domains: ['github.com', 'raw.githubusercontent.com'],
-    unoptimized: true
+    remotePatterns: [
+      { protocol: 'https', hostname: 'github.com' },
+      { protocol: 'https', hostname: 'raw.githubusercontent.com' },
+    ],
   },
   async rewrites() {
     return [

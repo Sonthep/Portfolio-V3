@@ -5,9 +5,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-// Force dynamic rendering to avoid prerender errors
-export const dynamic = 'force-dynamic';
-
 const inter = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 export const metadata: Metadata = {

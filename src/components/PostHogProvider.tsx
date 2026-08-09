@@ -7,7 +7,15 @@ import { Suspense, useEffect } from "react"
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+    const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+    if (!key) {
+      if (process.env.NODE_ENV === "development") {
+        console.warn("NEXT_PUBLIC_POSTHOG_KEY is not set; PostHog analytics is disabled.");
+      }
+      return;
+    }
+
+    posthog.init(key, {
       api_host: "/ingest",
       ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
       capture_pageview: false, // We capture pageviews manually

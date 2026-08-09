@@ -115,97 +115,98 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
             <motion.div
               key={project.title}
               variants={itemVariants}
-              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              className="relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
-              <Link href={`/project/${project.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                <div className="md:flex">
-                  {/* Project Image */}
-                  <div className="md:w-1/3">
-                    <div className="relative h-64 md:h-full">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20`} />
-                    </div>
-                  </div>
-
-                  {/* Project Content */}
-                  <div className="md:w-2/3 p-6 md:p-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                          {project.title}
-                        </h3>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                          {project.subtitle}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                          project.status === 'Completed' 
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
-                            : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
-                        }`}>
-                          {project.status}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Project Links */}
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-2 text-purple-600 dark:text-purple-400">
-                        <Icon icon="solar:eye-line-duotone" className="w-5 h-5" />
-                        <span className="text-sm font-medium">View Details</span>
-                      </div>
-                      
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <Icon icon="solar:code-square-line-duotone" className="w-5 h-5" />
-                          <span className="text-sm">Code</span>
-                        </a>
-                      )}
-                      
-                      {project.live && (
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <Icon icon="solar:link-line-duotone" className="w-5 h-5" />
-                          <span className="text-sm">Live Demo</span>
-                        </a>
-                      )}
-                    </div>
+              <Link
+                href={`/project/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
+                className="absolute inset-0 z-10"
+                aria-label={`View details for ${project.title}`}
+              />
+              <div className="md:flex">
+                {/* Project Image */}
+                <div className="md:w-1/3">
+                  <div className="relative h-64 md:h-full">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20`} />
                   </div>
                 </div>
-              </Link>
+
+                {/* Project Content */}
+                <div className="md:w-2/3 p-6 md:p-8">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                        {project.subtitle}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        project.status === 'Completed'
+                          ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+                          : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
+                      }`}>
+                        {project.status}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Project Links */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 text-purple-600 dark:text-purple-400">
+                      <Icon icon="solar:eye-line-duotone" className="w-5 h-5" />
+                      <span className="text-sm font-medium">View Details</span>
+                    </div>
+
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-20 flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                      >
+                        <Icon icon="solar:code-square-line-duotone" className="w-5 h-5" />
+                        <span className="text-sm">Code</span>
+                      </a>
+                    )}
+
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-20 flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                      >
+                        <Icon icon="solar:link-line-duotone" className="w-5 h-5" />
+                        <span className="text-sm">Live Demo</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
