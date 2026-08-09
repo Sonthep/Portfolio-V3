@@ -168,7 +168,7 @@ export default function TechStackSection() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-16 mx-6 md:mx-6 lg:mx-8"
+      className="mb-16 mx-6 md:mx-6 lg:mx-8 scroll-mt-24 md:scroll-mt-28"
     >
       <SectionHeader
         tagText="Tech Arsenal"

@@ -43,7 +43,7 @@ export default function ContactSection() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="mb-16"
+      className="mb-16 scroll-mt-24 md:scroll-mt-28"
     >
       <div className="max-w-4xl mx-auto">
         <SectionHeader

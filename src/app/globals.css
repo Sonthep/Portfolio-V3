@@ -56,10 +56,12 @@
 		@apply bg-gray-50 text-gray-900 dark:bg-black dark:text-white font-sans antialiased;
 		background-color: hsl(var(--background));
 		color: hsl(var(--foreground));
+		overflow-x: hidden;
 	}
 
 	html {
 		scroll-behavior: smooth;
+		overflow-x: hidden;
 	}
 }
 

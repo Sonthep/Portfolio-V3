@@ -114,7 +114,7 @@ export default function ExperienceSection() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
-      className="mb-16 relative overflow-hidden"
+      className="mb-16 relative overflow-hidden scroll-mt-24 md:scroll-mt-28"
     >
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -172,6 +172,7 @@ export default function ExperienceSection() {
                     <motion.div
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
                       transition={{ delay: 0.2 }}
                       className="flex items-center gap-2 md:gap-3 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium"
                     >
@@ -182,6 +183,7 @@ export default function ExperienceSection() {
                     <motion.h3
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
                       transition={{ delay: 0.3 }}
                       className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight"
                     >
@@ -191,6 +193,7 @@ export default function ExperienceSection() {
                     <motion.p
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
                       transition={{ delay: 0.4 }}
                       className="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-semibold"
                     >
@@ -202,6 +205,7 @@ export default function ExperienceSection() {
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.5 }}
                     className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed"
                   >
@@ -212,6 +216,7 @@ export default function ExperienceSection() {
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.6 }}
                     className="space-y-3 md:space-y-4"
                   >
@@ -226,6 +231,7 @@ export default function ExperienceSection() {
                           key={achIndex}
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
                           transition={{ delay: 0.7 + achIndex * 0.1 }}
                           className="flex items-start gap-3 md:gap-4 group/achievement hover:translate-x-1 md:hover:translate-x-2 transition-transform duration-300"
                         >
@@ -244,6 +250,7 @@ export default function ExperienceSection() {
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.8 }}
                     className="space-y-3 md:space-y-4"
                   >
@@ -258,6 +265,7 @@ export default function ExperienceSection() {
                           key={techIndex}
                           initial={{ opacity: 0, scale: 0 }}
                           whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
                           transition={{ delay: 0.9 + techIndex * 0.05 }}
                           whileHover={{ scale: 1.05, y: -2 }}
                           className="px-3 py-1.5 md:px-4 md:py-2 bg-gray-100/80 dark:bg-gray-800/50 text-gray-800 dark:text-gray-200 rounded-lg md:rounded-xl font-medium text-xs md:text-sm border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-300 dark:hover:border-blue-600 hover:bg-blue-50/80 dark:hover:bg-blue-900/20 transition-all duration-300"
@@ -275,6 +283,7 @@ export default function ExperienceSection() {
                 <motion.div
                   initial={{ opacity: 0, scaleX: 0 }}
                   whileInView={{ opacity: 1, scaleX: 1 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 1.2, duration: 0.8 }}
                   className="mt-6 md:mt-12 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent origin-left"
                 />

@@ -47,7 +47,7 @@ export default function OverviewSection() {
   return (
     <motion.section
       id="overview"
-      className="mb-16 md:mb-24 lg:mb-32 relative"
+      className="mb-16 md:mb-24 lg:mb-32 relative scroll-mt-24 md:scroll-mt-28"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.2 }}

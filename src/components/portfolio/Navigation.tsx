@@ -108,7 +108,7 @@ export default function Navigation() {
   // Don't render until mounted to prevent hydration issues
   if (!mounted) {
     return (
-      <nav className="fixed top-0 md:top-4 w-full z-50">
+      <nav className="fixed top-0 md:top-4 inset-x-0 z-50">
         <div className="md:max-w-fit md:border-2 md:rounded-full mx-auto px-7 py-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg">
           <div className="flex justify-between items-center gap-10">
             <div className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 dark:from-indigo-400 dark:via-purple-400 dark:to-violet-400 bg-clip-text text-transparent">
@@ -124,7 +124,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="fixed top-0 md:top-4 w-full z-50">
+    <nav className="fixed top-0 md:top-4 inset-x-0 z-50">
       {/* Scroll Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gray-200 dark:bg-gray-800">
         <motion.div

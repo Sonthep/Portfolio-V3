@@ -69,6 +69,7 @@ export default function SectionHeader({
             className={`h-1 md:h-1.5 lg:h-2 bg-gradient-to-l from-indigo-600 via-purple-600 to-violet-600 dark:from-indigo-400 dark:via-purple-400 dark:to-violet-400 rounded-full mb-3 md:mb-4 lg:mb-6 ${centered ? 'mx-auto' : ''}`}
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
+            viewport={{ once: true }}
             transition={{ duration: 1.5, delay: 0.5 }}
           />
         )

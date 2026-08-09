@@ -54,7 +54,7 @@ export default function ProjectsSection() {
 			whileInView={{ opacity: 1 }}
 			transition={{ duration: 1.2 }}
 			viewport={{ once: true }}
-			className="mb-16 md:mb-24 lg:mb-32 relative overflow-hidden"
+			className="mb-16 md:mb-24 lg:mb-32 relative overflow-hidden scroll-mt-24 md:scroll-mt-28"
 		>
 			{/* Enhanced Background Elements */}
 			<div className="absolute inset-0 pointer-events-none">

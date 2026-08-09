@@ -187,6 +187,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 										key={featureIndex}
 										initial={{ opacity: 0, x: -20 }}
 										whileInView={{ opacity: 1, x: 0 }}
+										viewport={{ once: true }}
 										transition={{ delay: featureIndex * 0.1 }}
 										className="flex items-start gap-2.5 md:gap-3 text-gray-700 dark:text-gray-300"
 									>
@@ -219,6 +220,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 										key={deliverableIndex}
 										initial={{ opacity: 0, x: -20 }}
 										whileInView={{ opacity: 1, x: 0 }}
+										viewport={{ once: true }}
 										transition={{ delay: deliverableIndex * 0.1 }}
 										className="flex items-start gap-2.5 md:gap-3 text-gray-700 dark:text-gray-300"
 									>
@@ -252,6 +254,7 @@ export default function ProjectCard({ project, variants }: ProjectCardProps) {
 									key={techIndex}
 									initial={{ opacity: 0, scale: 0 }}
 									whileInView={{ opacity: 1, scale: 1 }}
+									viewport={{ once: true }}
 									transition={{ delay: techIndex * 0.05 }}
 									whileHover={{ scale: 1.05, y: -2 }}
 									className="px-2.5 py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl text-xs md:text-sm font-medium border border-gray-200 dark:border-gray-600 hover:shadow-md md:hover:shadow-lg transition-all duration-200"
