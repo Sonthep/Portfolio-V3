@@ -3,7 +3,29 @@
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import TypewriterRole from "./TypewriterRole";
+
+const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false });
+
+function HeroCanvasGate() {
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setShouldRender(isDesktop && !prefersReducedMotion);
+  }, []);
+
+  if (!shouldRender) return null;
+
+  return (
+    <div className="absolute inset-0 opacity-60 pointer-events-none">
+      <HeroCanvas />
+    </div>
+  );
+}
 
 export default function HeroSection() {
   return (
@@ -12,6 +34,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-purple-500/5 dark:bg-purple-400/10 rounded-full blur-3xl" />
+
+        <HeroCanvasGate />
 
         {/* Geometric Accents */}
         <motion.div
