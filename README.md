@@ -67,6 +67,9 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 
 NEXT_PUBLIC_POSTHOG_KEY=your_posthog_project_api_key
 NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
+
+# Server-only -- powers the /api/chat resume chatbot
+ANTHROPIC_API_KEY=your_anthropic_api_key
 ```
 
 ### Next.js Config
