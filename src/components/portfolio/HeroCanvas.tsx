@@ -1,9 +1,10 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial } from "@react-three/drei";
+import { Float, MeshDistortMaterial, Stars } from "@react-three/drei";
 import { useRef } from "react";
-import type { Mesh } from "three";
+import type { Group, Mesh } from "three";
+import { useTheme } from "@/components/ThemeProvider";
 
 function FloatingShape() {
   const meshRef = useRef<Mesh>(null);
@@ -34,12 +35,31 @@ function FloatingShape() {
   );
 }
 
+function NightSky() {
+  const groupRef = useRef<Group>(null);
+
+  useFrame((_, delta) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.02;
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      <Stars radius={60} depth={30} count={2200} factor={2.5} saturation={0} fade speed={0.6} />
+      <Stars radius={30} depth={15} count={400} factor={4} saturation={0} fade speed={1} />
+    </group>
+  );
+}
+
 export default function HeroCanvas() {
+  const { theme } = useTheme();
+
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 45 }} gl={{ alpha: true, antialias: true }} dpr={[1, 1.5]}>
       <ambientLight intensity={0.6} />
       <pointLight position={[5, 5, 5]} intensity={0.8} />
-      <FloatingShape />
+      {theme === "dark" ? <NightSky /> : <FloatingShape />}
     </Canvas>
   );
 }
