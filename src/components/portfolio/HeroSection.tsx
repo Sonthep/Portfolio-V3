@@ -4,12 +4,12 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import TypewriterRole from "./TypewriterRole";
 
 const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false });
 
-function HeroCanvasGate() {
+function HeroCanvasGate({ pointer }: { pointer: RefObject<{ x: number; y: number }> }) {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
@@ -22,20 +22,34 @@ function HeroCanvasGate() {
 
   return (
     <div className="absolute inset-0 opacity-60 pointer-events-none">
-      <HeroCanvas />
+      <HeroCanvas pointer={pointer} />
     </div>
   );
 }
 
 export default function HeroSection() {
+  // Tracked via a ref (not state) so mouse movement never triggers a re-render --
+  // the R3F comet reads this directly inside its own animation frame loop. Lives on
+  // this outer container (not the canvas) because the canvas is pointer-events-none
+  // so it never receives mousemove itself.
+  const pointer = useRef({ x: 0, y: 0 });
+
+  const handlePointerMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    pointer.current = {
+      x: ((e.clientX - rect.left) / rect.width) * 2 - 1,
+      y: -(((e.clientY - rect.top) / rect.height) * 2 - 1),
+    };
+  };
+
   return (
-    <div className="relative min-h-dvh flex items-center justify-center">
+    <div className="relative min-h-dvh flex items-center justify-center" onMouseMove={handlePointerMove}>
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-purple-500/5 dark:bg-purple-400/10 rounded-full blur-3xl" />
 
-        <HeroCanvasGate />
+        <HeroCanvasGate pointer={pointer} />
 
         {/* Geometric Accents */}
         <motion.div
