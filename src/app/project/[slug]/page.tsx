@@ -1,6 +1,6 @@
 // src/app/project/[slug]/page.tsx
 import { Icon } from "@iconify/react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { allProjects } from "@/data/projects";
@@ -85,7 +85,10 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
               </p>
 
               {project.image && (
-                <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden">
+                <div
+                  className="relative h-[400px] mb-8 rounded-xl overflow-hidden"
+                  style={{ viewTransitionName: `project-image-${slug}` }}
+                >
                   <Image
                     src={project.image}
                     alt={project.title}

@@ -3,7 +3,7 @@
 import { motion, Variants } from "framer-motion";
 import { useState, useMemo } from "react";
 import { Icon } from "@iconify/react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
 import type { Project } from "@/types/project";
 
@@ -111,21 +111,26 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24"
       >
         <div className="grid gap-8 md:gap-12">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project) => {
+            const slug = project.title.toLowerCase().replace(/\s+/g, "-");
+            return (
             <motion.div
               key={project.title}
               variants={itemVariants}
               className="relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
               <Link
-                href={`/project/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
+                href={`/project/${slug}`}
                 className="absolute inset-0 z-10"
                 aria-label={`View details for ${project.title}`}
               />
               <div className="md:flex">
                 {/* Project Image */}
                 <div className="md:w-1/3">
-                  <div className="relative h-64 md:h-full">
+                  <div
+                    className="relative h-64 md:h-full"
+                    style={{ viewTransitionName: `project-image-${slug}` }}
+                  >
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -208,7 +213,8 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* No Results */}

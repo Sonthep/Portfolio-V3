@@ -2,6 +2,7 @@ import { PostHogProvider } from "@/components/PostHogProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navigation from "@/components/portfolio/Navigation";
 import ChatWidget from "@/components/portfolio/ChatWidget";
+import { ViewTransitions } from "next-view-transitions";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -26,16 +27,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
-        <PostHogProvider>
-          <ThemeProvider>
-            <Navigation />
-            {children}
-            <ChatWidget />
-          </ThemeProvider>
-        </PostHogProvider>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+        <body className={inter.className} suppressHydrationWarning>
+          <PostHogProvider>
+            <ThemeProvider>
+              <Navigation />
+              {children}
+              <ChatWidget />
+            </ThemeProvider>
+          </PostHogProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

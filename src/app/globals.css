@@ -462,6 +462,20 @@ textarea:focus-visible {
 		0 0 15px currentColor, 0 0 20px #3b82f6, 0 0 35px #3b82f6, 0 0 40px #3b82f6;
 }
 
+/* View transitions between pages (project card <-> project detail image morph) */
+::view-transition-group(*) {
+	animation-duration: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(*),
+	::view-transition-new(*),
+	::view-transition-group(*) {
+		animation-duration: 0s !important;
+		animation-delay: 0s !important;
+	}
+}
+
 /* Background grid pattern */
 .grid-background {
 	background-image: linear-gradient(
