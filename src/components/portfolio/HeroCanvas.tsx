@@ -1,9 +1,9 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial, Stars } from "@react-three/drei";
+import { Float, MeshDistortMaterial, Stars, Trail } from "@react-three/drei";
 import { useRef } from "react";
-import type { Group, Mesh } from "three";
+import { Vector3, type Group, type Mesh } from "three";
 import { useTheme } from "@/components/ThemeProvider";
 
 function FloatingShape() {
@@ -35,6 +35,36 @@ function FloatingShape() {
   );
 }
 
+const COMET_START = new Vector3(9, 5, -2);
+const COMET_END = new Vector3(-9, -4.5, -2);
+const COMET_STREAK_SECONDS = 3.5;
+const COMET_PAUSE_SECONDS = 9;
+
+function Comet() {
+  const cometRef = useRef<Mesh>(null);
+
+  useFrame(({ clock }) => {
+    if (!cometRef.current) return;
+    const cycle = COMET_STREAK_SECONDS + COMET_PAUSE_SECONDS;
+    const t = clock.getElapsedTime() % cycle;
+    if (t > COMET_STREAK_SECONDS) {
+      cometRef.current.visible = false;
+      return;
+    }
+    cometRef.current.visible = true;
+    cometRef.current.position.lerpVectors(COMET_START, COMET_END, t / COMET_STREAK_SECONDS);
+  });
+
+  return (
+    <Trail width={2.5} length={7} color="#c4b5fd" attenuation={(w) => w * w}>
+      <mesh ref={cometRef}>
+        <sphereGeometry args={[0.06, 8, 8]} />
+        <meshBasicMaterial color="#f5f3ff" />
+      </mesh>
+    </Trail>
+  );
+}
+
 function NightSky() {
   const groupRef = useRef<Group>(null);
 
@@ -48,6 +78,7 @@ function NightSky() {
     <group ref={groupRef}>
       <Stars radius={60} depth={30} count={2200} factor={2.5} saturation={0} fade speed={0.6} />
       <Stars radius={30} depth={15} count={400} factor={4} saturation={0} fade speed={1} />
+      <Comet />
     </group>
   );
 }
