@@ -13,5 +13,5 @@ export interface Project {
   highlight?: string;
   timeline: string;
   clientType: string;
-  image: string; // Add this property
+  image: string;
 }

@@ -70,6 +70,11 @@ NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 
 # Server-only -- powers the /api/chat resume chatbot
 ANTHROPIC_API_KEY=your_anthropic_api_key
+
+# Optional -- durable, cross-instance rate limiting for /api/chat.
+# Without these, the chat endpoint falls back to a per-instance in-memory limiter.
+UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token
 ```
 
 ### Next.js Config

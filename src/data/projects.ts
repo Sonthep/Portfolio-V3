@@ -2,9 +2,7 @@
 
 import type { Project } from "@/types/project";
 
-// แก้ไข: เปลี่ยนชื่อตัวแปรจาก 'projects' เป็น 'allProjects'
 export const allProjects: Project[] = [
-  // ...your projects data here
   {
     title: "BrainTraining Mobile App",
     subtitle: "Personalized Cognitive Training Platform",
@@ -137,5 +135,5 @@ export const allProjects: Project[] = [
     image: "/image/mobile.webp"
   }
 ];
-// แก้ไข: export featuredProjects จาก allProjects
+
 export const featuredProjects = allProjects.slice(0, 3);

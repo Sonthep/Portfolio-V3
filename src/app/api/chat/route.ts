@@ -1,4 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 import { buildSystemPrompt } from "@/lib/chat-context";
 
 let client: Anthropic | null = null;
@@ -11,17 +13,41 @@ const SYSTEM_PROMPT = buildSystemPrompt();
 
 const MAX_MESSAGE_LENGTH = 2000;
 const MAX_MESSAGES = 20;
-const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_WINDOW = "60 s";
 const RATE_LIMIT_MAX_REQUESTS = 10;
 
-const requestLog = new Map<string, number[]>();
+// Durable, cross-instance rate limiting when Upstash Redis is configured.
+// Falls back to an in-memory limiter (per-instance only) for local dev / previews without it.
+const redisLimiter =
+  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    ? new Ratelimit({
+        redis: new Redis({
+          url: process.env.UPSTASH_REDIS_REST_URL,
+          token: process.env.UPSTASH_REDIS_REST_TOKEN,
+        }),
+        limiter: Ratelimit.slidingWindow(RATE_LIMIT_MAX_REQUESTS, RATE_LIMIT_WINDOW),
+        prefix: "chat-ratelimit",
+        analytics: false,
+      })
+    : null;
 
-function isRateLimited(ip: string): boolean {
+const memoryRequestLog = new Map<string, number[]>();
+
+function isRateLimitedInMemory(ip: string): boolean {
   const now = Date.now();
-  const recent = (requestLog.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  const windowMs = 60_000;
+  const recent = (memoryRequestLog.get(ip) ?? []).filter((t) => now - t < windowMs);
   recent.push(now);
-  requestLog.set(ip, recent);
+  memoryRequestLog.set(ip, recent);
   return recent.length > RATE_LIMIT_MAX_REQUESTS;
+}
+
+async function isRateLimited(ip: string): Promise<boolean> {
+  if (redisLimiter) {
+    const { success } = await redisLimiter.limit(ip);
+    return !success;
+  }
+  return isRateLimitedInMemory(ip);
 }
 
 interface ChatMessage {
@@ -43,7 +69,7 @@ function isValidMessages(value: unknown): value is ChatMessage[] {
 
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-  if (isRateLimited(ip)) {
+  if (await isRateLimited(ip)) {
     return new Response("Too many requests. Please try again in a minute.", { status: 429 });
   }
 
