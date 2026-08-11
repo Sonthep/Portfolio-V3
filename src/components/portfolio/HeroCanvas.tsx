@@ -2,8 +2,8 @@
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Stars, Trail } from "@react-three/drei";
-import { useRef, type RefObject } from "react";
-import { Vector3, type Group, type Mesh } from "three";
+import { useMemo, useRef, type RefObject } from "react";
+import { AdditiveBlending, Color, type Group, type Mesh } from "three";
 import { useTheme } from "@/components/ThemeProvider";
 
 function FloatingShape() {
@@ -35,39 +35,55 @@ function FloatingShape() {
   );
 }
 
-const COMET_START = new Vector3(9, 5, -2);
-const COMET_END = new Vector3(-9, -4.5, -2);
-const COMET_STREAK_SECONDS = 3.5;
-const COMET_PAUSE_SECONDS = 9;
-
-function Comet() {
-  const cometRef = useRef<Mesh>(null);
-
-  useFrame(({ clock }) => {
-    if (!cometRef.current) return;
-    const cycle = COMET_STREAK_SECONDS + COMET_PAUSE_SECONDS;
-    const t = clock.getElapsedTime() % cycle;
-    if (t > COMET_STREAK_SECONDS) {
-      cometRef.current.visible = false;
-      return;
-    }
-    cometRef.current.visible = true;
-    cometRef.current.position.lerpVectors(COMET_START, COMET_END, t / COMET_STREAK_SECONDS);
-  });
-
-  return (
-    <Trail width={2.5} length={7} color="#c4b5fd" attenuation={(w) => w * w}>
-      <mesh ref={cometRef}>
-        <sphereGeometry args={[0.06, 8, 8]} />
-        <meshBasicMaterial color="#f5f3ff" />
-      </mesh>
-    </Trail>
-  );
-}
-
 interface PointerRef {
   x: number;
   y: number;
+}
+
+const STAR_VERTEX_SHADER = `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+const STAR_FRAGMENT_SHADER = `
+  uniform vec3 color;
+  varying vec2 vUv;
+  void main() {
+    vec2 p = vUv - 0.5;
+    float d = length(p);
+
+    float glow = smoothstep(0.5, 0.0, d);
+    float core = smoothstep(0.14, 0.0, d);
+
+    // Four-point diffraction spikes, like a twinkling star
+    float spikeX = smoothstep(0.02, 0.0, abs(p.y)) * smoothstep(0.5, 0.0, abs(p.x));
+    float spikeY = smoothstep(0.02, 0.0, abs(p.x)) * smoothstep(0.5, 0.0, abs(p.y));
+    float spikes = max(spikeX, spikeY);
+
+    float alpha = clamp(core * 1.2 + glow * 0.5 + spikes * 0.55, 0.0, 1.0);
+    gl_FragColor = vec4(color, alpha);
+  }
+`;
+
+function SparkleStar({ size = 0.24, color = "#eef2ff" }: { size?: number; color?: string }) {
+  const uniforms = useMemo(() => ({ color: { value: new Color(color) } }), [color]);
+
+  return (
+    <mesh>
+      <planeGeometry args={[size, size]} />
+      <shaderMaterial
+        uniforms={uniforms}
+        vertexShader={STAR_VERTEX_SHADER}
+        fragmentShader={STAR_FRAGMENT_SHADER}
+        transparent
+        depthWrite={false}
+        blending={AdditiveBlending}
+      />
+    </mesh>
+  );
 }
 
 function CometCursor({ pointer }: { pointer: RefObject<PointerRef> }) {
@@ -83,12 +99,9 @@ function CometCursor({ pointer }: { pointer: RefObject<PointerRef> }) {
   });
 
   return (
-    <Trail width={2.5} length={5} color="#c7d2fe" attenuation={(t) => t * t} decay={3}>
+    <Trail width={0.6} length={5} color="#a5b4fc" attenuation={(t) => t * t * t} decay={3}>
       <group ref={targetRef}>
-        <mesh>
-          <sphereGeometry args={[0.045, 8, 8]} />
-          <meshBasicMaterial color="#eef2ff" />
-        </mesh>
+        <SparkleStar />
       </group>
     </Trail>
   );
@@ -99,16 +112,16 @@ function NightSky({ pointer }: { pointer: RefObject<PointerRef> }) {
 
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.02;
+      groupRef.current.rotation.y += delta * 0.015;
     }
   });
 
   return (
     <>
       <group ref={groupRef}>
-        <Stars radius={60} depth={30} count={2200} factor={2.5} saturation={0} fade speed={0.6} />
-        <Stars radius={30} depth={15} count={400} factor={4} saturation={0} fade speed={1} />
-        <Comet />
+        {/* Layered starfield with twinkling and varying sizes */}
+        <Stars radius={70} depth={40} count={2800} factor={3} saturation={0.2} fade speed={1.2} />
+        <Stars radius={35} depth={20} count={600} factor={5} saturation={0.5} fade speed={1.8} />
       </group>
       <CometCursor pointer={pointer} />
     </>
@@ -120,9 +133,10 @@ export default function HeroCanvas({ pointer }: { pointer: RefObject<PointerRef>
 
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 45 }} gl={{ alpha: true, antialias: true }} dpr={[1, 1.5]}>
-      <ambientLight intensity={0.6} />
-      <pointLight position={[5, 5, 5]} intensity={0.8} />
+      <ambientLight intensity={0.8} />
+      <pointLight position={[5, 5, 5]} intensity={1.0} />
       {theme === "dark" ? <NightSky pointer={pointer} /> : <FloatingShape />}
     </Canvas>
   );
 }
+

@@ -21,7 +21,7 @@ function HeroCanvasGate({ pointer }: { pointer: RefObject<{ x: number; y: number
   if (!shouldRender) return null;
 
   return (
-    <div className="absolute inset-0 opacity-60 pointer-events-none">
+    <div className="absolute inset-0 opacity-85 pointer-events-none">
       <HeroCanvas pointer={pointer} />
     </div>
   );
