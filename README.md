@@ -1,163 +1,92 @@
-# Portfolio V3
+# Sonthep — Portfolio
 
-Modern portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
+A personal portfolio website for presenting web development projects, technical experience, and selected work.
 
-## 🚀 Features
+**Focus:** E-commerce · Websites · Business automation  
+**ภาษาไทย:** เว็บไซต์รวมผลงานของ Sonthep โดยเน้นเว็บไซต์ E-commerce และเครื่องมือช่วยจัดการงานธุรกิจ
 
-- **Next.js 15** with App Router
-- **TypeScript** for type safety
-- **Tailwind CSS** for styling
-- **Framer Motion** for animations
-- **PostHog** for analytics
-- **Responsive design**
-- **Dark/Light theme**
-- **SEO optimized**
+[Explore the source](src/) · [Project data](src/data/projects.ts) · [Contributing](CONTRIBUTING.md)
 
-## 📦 Installation
+## Selected repositories
 
-1. Clone the repository:
+| Project | Focus | What to explore |
+| --- | --- | --- |
+| [Shopify Automation Tools](https://github.com/Sonthep/shopify-automation-tools) | E-commerce operations | Bulk product workflows, Shopify API integration, and Google Apps Script |
+| [Shopify Horizon Customization](https://github.com/Sonthep/shopify-theme-horizon) | Shopify development | Liquid storefront structure and a custom brand directory |
+| [Sevenfive E-commerce](https://github.com/Sonthep/v0-ecommerce-redesign-sevenfive) | Storefront development | Next.js storefront pages and localized navigation |
+| [User & Order Management](https://github.com/Sonthep/nextjs-prisma-user-management) | Full-stack development | API routes, a service layer, and relational data modeling |
+| [Cafe POS](https://github.com/Sonthep/Simple-Cafe-POS) | Learning project | Python order entry, input validation, and receipt calculations |
+
+These links provide source-level examples. Each repository documents its own setup and limitations.
+
+## Website capabilities
+
+- Project listing and individual project pages.
+- Responsive layout and light/dark themes.
+- Motion and interactive visuals with Framer Motion and Three.js-related libraries.
+- Contact integration through EmailJS.
+- PostHog analytics integration.
+- A server-side resume chat endpoint using the Anthropic SDK.
+
+Service integrations require their respective environment settings. Their presence in the source does not imply a configured live deployment.
+
+## Stack
+
+Next.js 15 · React 19 · TypeScript · Tailwind CSS 4 · Framer Motion
+
+Dependency versions and runnable scripts are defined in [package.json](package.json).
+
+## Run locally
+
 ```bash
-git clone <repository-url>
+git clone https://github.com/Sonthep/Portfolio-V3.git
 cd Portfolio-V3
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Create environment file:
-```bash
+npm ci
 cp env-example .env
-# Edit .env with your configuration
-```
-
-## 🏗️ Development
-
-Start the development server:
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Review `env-example` and configure the services you want to use. Open http://localhost:3000.
 
-## 🚀 Deployment
+| Variable group | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_EMAILJS_*` | Browser contact form integration |
+| `NEXT_PUBLIC_POSTHOG_*` | Analytics client and host |
+| `ANTHROPIC_API_KEY` | Server-side resume chat |
+| `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` | Optional shared chat rate limiting |
 
-### Vercel (Recommended)
+Keep server credentials in local environment files or the hosting provider's environment settings.
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically
+## Project guide
 
-### Manual Build
+| Location | Responsibility |
+| --- | --- |
+| [src/app/](src/app/) | Pages, layouts, and route handlers |
+| [src/components/](src/components/) | Reusable interface components |
+| [src/data/projects.ts](src/data/projects.ts) | Project entries |
+| [src/data/experience.ts](src/data/experience.ts) | Experience entries |
+| [src/data/certifications.ts](src/data/certifications.ts) | Certification entries |
+| [src/data/tech-stack.ts](src/data/tech-stack.ts) | Technology entries |
+| [public/](public/) | Static assets |
+| [next.config.js](next.config.js) | Next.js configuration |
+
+## Build and checks
 
 ```bash
+npx eslint .
+npx tsc --noEmit
 npm run build
-npm run start
+npm start
 ```
 
-## 🛠️ Configuration
+The current `npm run lint` script invokes `next lint`; use `npx eslint .` to invoke ESLint directly. The repository does not define an `npm test` script. These are commands to run, not a claim that validation has passed.
 
-### Environment Variables
+## Maintaining the portfolio
 
-```env
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+For each project entry, provide a concrete problem, your contribution, the implemented scope, and a source or working demo link. Use screenshots from the actual application and describe measured results only when supporting evidence is available.
 
-NEXT_PUBLIC_POSTHOG_KEY=your_posthog_project_api_key
-NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
+Update the data files above when adding work. Follow [CONTRIBUTING.md](CONTRIBUTING.md) for changes to this website.
 
-# Server-only -- powers the /api/chat resume chatbot
-ANTHROPIC_API_KEY=your_anthropic_api_key
+## Contact
 
-# Optional -- durable, cross-instance rate limiting for /api/chat.
-# Without these, the chat endpoint falls back to a per-instance in-memory limiter.
-UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url
-UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token
-```
-
-### Next.js Config
-
-Key configurations in `next.config.js`:
-- `experimental.scrollRestoration` - Smooth scrolling
-- `generateBuildId` - Unique build IDs
-- `headers` - Static asset caching
-- `rewrites` - PostHog API proxy
-
-## 📁 Project Structure
-
-```
-Portfolio-V3/
-├── src/
-│   ├── app/                 # Next.js app router
-│   │   ├── layout.tsx      # Root layout
-│   │   ├── page.tsx        # Home page
-│   │   ├── projects/       # Projects pages
-│   │   └── project/[slug]/ # Dynamic project pages
-│   ├── components/
-│   │   ├── portfolio/      # Portfolio components
-│   │   └── ThemeProvider.tsx
-│   └── data/               # Static data
-├── public/                 # Static assets
-└── vercel.json            # Vercel deployment config
-```
-
-## 🔧 Troubleshooting
-
-### Build Issues
-
-If you encounter build errors:
-
-1. **Clear cache**:
-```bash
-npm cache clean --force
-rm -rf .next
-npm install
-```
-
-2. **Check lockfiles**:
-- Ensure only one package manager is used
-- Remove conflicting lockfiles if present
-
-3. **Environment variables**:
-- Verify `.env` file exists
-- Check variable names match usage
-
-### Deployment Issues
-
-For Vercel deployment problems:
-
-1. **Clear build cache** in Vercel dashboard
-2. **Redeploy** with "Ignore build cache" enabled
-3. **Check logs** for specific error messages
-4. **Verify environment variables** in Vercel
-
-### Runtime Errors
-
-If the site shows blank/white page:
-
-1. **Check browser console** for JavaScript errors
-2. **Clear browser cache** (Ctrl+F5)
-3. **Try incognito mode** to avoid extensions
-4. **Verify static assets** are loading correctly
-
-## 📄 Scripts
-
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run start    # Start production server
-npm run lint     # Run ESLint
-```
-
-## 🎨 Customization
-
-- **Colors**: Edit `tailwind.config.js`
-- **Fonts**: Update `src/app/layout.tsx`
-- **Content**: Modify files in `src/data/`
-- **Components**: Customize in `src/components/`
-
-## 📧 Contact
-
-For questions or issues, please open an issue on GitHub.
+Visit [Sonthep on GitHub](https://github.com/Sonthep) for repositories and project discussions.
